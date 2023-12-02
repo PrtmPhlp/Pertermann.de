@@ -3,7 +3,6 @@
 # Definieren Sie den Namen Ihres Docker-Images und Tags
 IMAGE_NAME="my-app"
 IMAGE_TAG="v2"
-HOST_DIR="/users/dietpi/server-node"  # Pfad auf Ihrem Host-System
 
 # Stoppen und entfernen Sie den aktuellen Container (angepasst an Ihren Container-Namen)
 CONTAINER_NAME="NODEJS-cretu.dev"
@@ -17,7 +16,7 @@ docker build -t $IMAGE_NAME:$IMAGE_TAG .
 
 # Starten Sie den neuen Container mit dem Host-Verzeichnis als Volume
 echo "Starten des neuen Containers: $CONTAINER_NAME"
-docker run -d --name $CONTAINER_NAME -v $HOST_DIR:/:rw -p 3000:3000 $IMAGE_NAME:$IMAGE_TAG
+docker run -d --name $CONTAINER_NAME -p 3000:3000 $IMAGE_NAME:$IMAGE_TAG
 
 echo "Container aktualisiert und gestartet: $CONTAINER_NAME"
 
