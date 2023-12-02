@@ -171,7 +171,7 @@ async function RecentWritings() {
 
   return (
     <div className="flex flex-col gap-4">
-      <p className="text-tertiary">Recent writing</p>
+      <a className="text-tertiary" href="writing/">Recent writing</a>
       <div className="space-y-2">
         {posts.map((post) => (
           <Link
