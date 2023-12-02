@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Definieren Sie den Namen Ihres Docker-Images und Tags
-IMAGE_NAME="my-app"
+IMAGE_NAME="cretu.dev"
 IMAGE_TAG="v2"
 
 # Stoppen und entfernen Sie den aktuellen Container (angepasst an Ihren Container-Namen)
