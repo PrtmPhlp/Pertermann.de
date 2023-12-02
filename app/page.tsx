@@ -62,7 +62,7 @@ function Header() {
 function AboutMe() {
   return (
     <div className="flex flex-col gap-4">
-      <p className="text-tertiary">About this</p>
+      <p className="text-tertiary">About meeeeeeee</p>
       <div className="text-secondary flex flex-col gap-4">
         <p>
         A place for everything and nothing, where expectations are left at the doorstep and chaos reigns supreme. 
