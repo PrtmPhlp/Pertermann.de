@@ -68,7 +68,7 @@ function AboutMe() {
         A place for everything and nothing, where expectations are left at the doorstep and chaos reigns supreme. 
         </p>
         <p>
-          Working on multiple projects and apps, some of them you can find here, some you don't. Maybo also look at my {' '}
+          Working on multiple projects and apps, some of them you can find here, some you don&apos;t. Maybo also look at my {' '}
           <ExternalLink arrow={true} href="https://github.com/PrtmPhlp">
             Github
           </ExternalLink>{' '}
