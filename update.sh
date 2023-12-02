@@ -5,7 +5,7 @@ IMAGE_NAME="cretu.dev"
 IMAGE_TAG="v2"
 
 # Stoppen und entfernen Sie den aktuellen Container (angepasst an Ihren Container-Namen)
-CONTAINER_NAME="NODEJS-cretu.dev"
+CONTAINER_NAME="cretu.dev"
 echo "Stoppen des aktuellen Containers: $CONTAINER_NAME"
 docker stop $CONTAINER_NAME
 docker rm $CONTAINER_NAME
