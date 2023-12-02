@@ -72,6 +72,7 @@ function AboutMe() {
           <ExternalLink arrow={true} href="https://github.com/PrtmPhlp">
             Github
           </ExternalLink>{' '}
+          :)
         </p>
 {/*         <p>
           Currently studying Computer Science at BBU. Ardent in reading,
