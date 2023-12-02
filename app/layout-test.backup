@@ -10,9 +10,10 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  authors: [{ name: 'Pertermann', url: 'https://pertermann.de' }],
+  archives: ['https://old.crtu.dev'],
+  authors: [{ name: 'Cristian Crețu', url: 'https://cretu.dev' }],
   category: 'design',
-  creator: 'Pertermann',
+  creator: 'Cristian Crețu',
   description: 'Design Engineer.',
   icons: {
     apple: '/static/favicons/apple-touch-icon-180x180.png',
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
     'Frontend',
     'Developer',
     'Software',
-    'Pertermann',
+    'Cristian Crețu',
     'Cristicrtu',
     'cretu.dev',
     'romania',
@@ -40,19 +41,19 @@ export const metadata: Metadata = {
     description: 'Design Engineer.',
     images: [
       {
-        alt: 'Pertermann',
+        alt: 'Cristian Crețu',
         height: 1080,
         url: 'https://cretu.dev/static/images/og.png',
         width: 1920,
       },
     ],
     locale: 'en-US',
-    siteName: 'Pertermann',
-    title: 'Pertermann',
+    siteName: 'Cristian Crețu',
+    title: 'Cristian Crețu',
     type: 'website',
     url: 'https://cretu.dev',
   },
-  publisher: 'Pertermann',
+  publisher: 'Cristian Crețu',
   robots: {
     follow: true,
     googleBot: {
@@ -64,16 +65,18 @@ export const metadata: Metadata = {
     },
     index: true,
   },
-  themeColor: '#4e4bec',
   title: {
-    default: 'Pertermann',
-    template: '%s | Pertermann',
+    default: 'Cristian Crețu',
+    template: '%s | Cristian Crețu',
   },
   twitter: {
     card: 'summary_large_image',
     site: '@cristicrtu',
-    title: 'Pertermann',
-  }
+    title: 'Cristian Crețu',
+  },
+  verification: {
+    google: 'fK4YqLAHjoaynXLF1e5gaPzDNOircgiYSgAwSXqr61o',
+  },
 };
 
 export default function RootLayout({
@@ -106,12 +109,12 @@ export default function RootLayout({
         {/* <div className=" ml-0.5 w-3 bg-[#228B22]  bg-[#EC605A] bg-[#EC605A] bg-[#5D0F07] bg-[#F7D358] bg-[#673D13] bg-[#61C167] bg-[#0D2805] bg-[#63C7FA] bg-[#63C7FA] bg-[#102E62] bg-[#EC79F9] bg-[#EC79F9] bg-[#5C0E63] bg-[#9f3e1b] bg-[#FF7F50] text-[#9f3e1b] text-[#5D0F07] text-[#673D13] text-[#102E62] text-[#5C0E63] text-[#0D2805]"></div> */}
         <Providers>
           <nav className="fixed bottom-4 left-2 z-50 sm:left-4 md:left-6">
-{/* <button className="rounded-full bg-blue-500 p-3">
+            {/* <button className="rounded-full bg-blue-500 p-3">
               <PlusIcon className="h-6 w-6 text-white" />
             </button> */}
             {/* <div>hey</div> */}
             <RollingMenu />
-{/* <Swatch /> */}
+            {/* <Swatch /> */}
           </nav>
           <AnimateEnter>
             <>

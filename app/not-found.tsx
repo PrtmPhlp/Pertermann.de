@@ -4,14 +4,17 @@ export default function NotFound() {
   return (
     <div className="">
       <h1 className="text-4xl font-bold">404 - Page Not Found</h1>
+      <br />
       <p>
         Maybe you misspelled the link. Maybe something existed here, or it
         didn&apos;t exist in the first place...
       </p>
-      <p>Maybe I should&apos;ve used a debugger instead of just logging...</p>
-      <Link className="text-blue-500" href="/">
+      <p><br />Maybe I should&apos;ve used a debugger instead of just logging... <br />Try just reloading the page :/</p>
+      <br />
+      <Link className="text-blue-500 text-xl flex justify-center items-center" href="/">
         Home
       </Link>
+      <br />
     </div>
   );
 }

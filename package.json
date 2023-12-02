@@ -20,7 +20,7 @@
     "framer-motion": "^10.12.18",
     "next": "13.4.8",
     "next-contentlayer": "^0.3.4",
-    "next-themes": "^0.2.1",
+    "next-themes": "^0.2.1-beta.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "three": "^0.154.0"
@@ -61,7 +61,7 @@
   "license": "MIT",
   "author": {
     "email": "crisemcr@gmail.com",
-    "name": "Cristian Crețu",
+    "name": "Pertermann",
     "url": "https://cretu.dev"
   },
   "homepage": "https://cretu.dev",

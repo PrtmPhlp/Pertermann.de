@@ -31,7 +31,7 @@ export const actions: Action[] = [
   {
     name: "GitHub",
     keywords: "github",
-    href: "https://github.com/cristicretu",
+    href: "https://github.com/PrtmPhlp",
     section: "Socials",
     color: "#61C167",
     iconColor: "#0D2805",
@@ -39,7 +39,7 @@ export const actions: Action[] = [
   {
     name: "Twitter",
     keywords: "twitter",
-    href: "https://twitter.com/cristicrtu",
+    href: "https://twitter.com/PrtmPhlp",
     section: "Socials",
     color: "#63C7FA",
     iconColor: "#102E62",
@@ -88,7 +88,7 @@ export const Socials: Action[] = [
     name: "GitHub",
     keywords: "github",
     perform: () => {
-      window.open("https://github.com/cristicretu");
+      window.open("https://github.com/PrtmPhlp");
     },
     section: "Socials",
   },
@@ -96,7 +96,7 @@ export const Socials: Action[] = [
     name: "Twitter",
     keywords: "twitter",
     perform: () => {
-      window.open("https://twitter.com/cristicrtu");
+      window.open("https://twitter.com/PrtmPhlp");
     },
     section: "Socials",
   },

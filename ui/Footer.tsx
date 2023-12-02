@@ -9,19 +9,11 @@ export default function Footer() {
     <footer className="text-quaternary border-gray-200 pb-24 mx-auto max-w-2xl border-t border-dashed py-12 pt-4 text-sm dark:border-gray-200 dark:text-gray-600">
       <FooterGraphic />
       <p className='flex flex-col gap-4'>
-        © 2021 - {new Date().getFullYear()} Cristian Crețu.  All Rights Reserved.
-        <span>www.cretu.dev v.2023.11</span>
+        © 2022 - {new Date().getFullYear()} Pertermann.  All Rights Reserved.
+        <span>www.pertermann.de v.2023.11</span>
 
-        <span>Website built using Next.js
-        & TailwindCSS (
-        <a
-          href="https://github.com/cristicretu/cretu.dev"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          view source
-        </a>
-        ).</span>
+        <span>Website built using components like Next.js
+        & TailwindCSS.</span>
       </p>
     </footer>
   );
@@ -29,7 +21,6 @@ export default function Footer() {
 
 function PixelatedSphere() {
   const sphereRef = useRef();
-
   useFrame(({ clock }: { clock: any }) => {
     if (sphereRef.current) {
       (sphereRef.current as any).rotation.y = clock.getElapsedTime() * 1.2;

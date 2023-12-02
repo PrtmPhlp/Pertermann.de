@@ -45,15 +45,15 @@ function Header() {
           className="rounded-full"
           layout="fill"
           objectFit="contain"
-          src="/static/images/logo.png"
+          src="/static/images/profile.jpg"
         />
         <div className="absolute -bottom-2 -right-2 rounded-full bg-white px-1 py-0.5 text-sm dark:bg-gray-900">
           ✨
         </div>
       </div>
       <div className="flex flex-col">
-        <h1>Cristian Crețu</h1>
-        <p className="text-quaternary">Design Engineer</p>
+        <h1>Pertermann</h1>
+        <p className="text-quaternary"></p>
       </div>
     </div>
   );
@@ -62,31 +62,21 @@ function Header() {
 function AboutMe() {
   return (
     <div className="flex flex-col gap-4">
-      <p className="text-tertiary">About me</p>
+      <p className="text-tertiary">About this</p>
       <div className="text-secondary flex flex-col gap-4">
         <p>
-          Passionate about crafting seamless, polished interfaces where design
-          meets engineering.
+        A place for everything and nothing, where expectations are left at the doorstep and chaos reigns supreme. 
         </p>
         <p>
-          Working on multiple projects and apps; formerly at{' '}
-          <ExternalLink arrow={false} href="https://deta.space">
-            Deta
+          Working on multiple projects and apps, some of them you can find here, some you don't. Maybo also look at my {' '}
+          <ExternalLink arrow={true} href="https://github.com/PrtmPhlp">
+            Github
           </ExternalLink>{' '}
-          developing the{' '}
-          <ExternalLink href="https://deta.space/docs/en/learn/what-is-pc#content">
-            OS for the web
-          </ExternalLink>{' '}
-          , and at{' '}
-          <ExternalLink arrow={false} href="https://github.com/Landmarks-Tech">
-            Landmarks
-          </ExternalLink>{' '}
-          creating stunning web applications.
         </p>
-        <p>
+{/*         <p>
           Currently studying Computer Science at BBU. Ardent in reading,
           writing, and improving consistently through learning.
-        </p>
+        </p> */}
       </div>
     </div>
   );
@@ -145,31 +135,31 @@ function Contact() {
       <p className="text-tertiary">Links</p>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         <ContactLink
-          href="https://X.com/cristicrtu"
-          title="cristicrtu"
+          href="https://X.com/PrtmPhlp"
+          title="@prtmphlp"
           website="X"
         />
         <ContactLink
-          href="https://github.com/cristicretu"
-          title="cristicretu"
+          href="https://github.com/PrtmPhlp"
+          title="PrtmPhlp"
           website="GitHub"
         />
         <ContactLink
-          href="https://www.figma.com/@cretu"
-          title="cretu"
-          website="Figma"
+          href="https://www.instagram.com/PrtmPhlp"
+          title="PrtmPhlp"
+          website="Instagram"
         />
         <ContactLink
-          href="https://layers.to/cretu"
-          title="cretu"
-          website="Layers.to"
-        />
-        <ContactLink
-          email="hi[at]cretu(dot)dev"
-          title="hi[at]cretu(dot)dev"
+          href="mailto:hello@pertermann.de"
+          title="hello@pertermann"
           website="Email"
         />
-        <ContactLink href="https://read.cv/cretu" title="cretu" website="CV" />
+        <ContactLink
+          href="mailto:philipp@pertermann.de"
+          title="philipp@pertermann.de"
+          website="Email"
+        />
+        <ContactLink href="https://" title="placeholder" website="--" />
       </div>
     </div>
   );
