@@ -1,5 +1,5 @@
-import { allWritings } from "@/.contentlayer/generated";
-import { MetadataRoute } from "next";
+import { allWritings } from '@/.contentlayer/generated';
+import { MetadataRoute } from 'next';
 
 export default function sitemap() {
   const postRoutes = allWritings.map((post) => ({

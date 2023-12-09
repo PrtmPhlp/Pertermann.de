@@ -125,7 +125,7 @@ export default function Swatch() {
           <Link
             className={cn(
               'flex h-14 w-12 cursor-pointer flex-col items-center space-y-1 p-2 transition-all duration-200',
-              index === 0 ? 'rounded-t-xl rounded-b-lg' : 'rounded-lg',
+              index === 0 ? 'rounded-b-lg rounded-t-xl' : 'rounded-lg',
               index === 0 ? 'bg-[#7786FE]' : 'bg-[#9CB7FF]',
               'transition-all duration-200 hover:bg-opacity-80',
             )}
@@ -163,7 +163,7 @@ export default function Swatch() {
             // x: animate ? 65 : 0,
             y: animate ? 5 : 0,
           }}
-          className="absolute top-0 left-0 right-0 flex w-fit flex-col items-center space-y-2 rounded-xl rounded-t-2xl bg-gray-200 p-1.5 dark:bg-gray-800"
+          className="absolute left-0 right-0 top-0 flex w-fit flex-col items-center space-y-2 rounded-xl rounded-t-2xl bg-gray-200 p-1.5 dark:bg-gray-800"
           exit={{ opacity: 0, rotate: 0, scale: 0, x: 0, y: 0 }}
           initial={{ opacity: 0, rotate: 0, scale: 0, x: 0, y: 0 }}
           style={{ rotate }}
@@ -173,7 +173,7 @@ export default function Swatch() {
             <div
               className={cn(
                 'flex h-14 w-12 cursor-pointer flex-col items-center space-y-1 p-2 transition-all duration-200',
-                index === 0 ? 'rounded-t-xl rounded-b-lg' : 'rounded-lg',
+                index === 0 ? 'rounded-b-lg rounded-t-xl' : 'rounded-lg',
                 index === 0 ? 'bg-[#CC697D]' : 'bg-[#E19DC2]',
                 'transition-all duration-200 hover:bg-opacity-80',
               )}
@@ -202,7 +202,7 @@ export default function Swatch() {
             // x: animate ? 70 : 0,
             y: animate ? 69 : 0,
           }}
-          className="absolte top-0 left-0 right-0 flex w-fit flex-col items-center space-y-2 rounded-xl rounded-t-2xl bg-gray-200 p-1.5 dark:bg-gray-800"
+          className="absolte left-0 right-0 top-0 flex w-fit flex-col items-center space-y-2 rounded-xl rounded-t-2xl bg-gray-200 p-1.5 dark:bg-gray-800"
           exit={{
             opacity: 0,
             rotate: 0,
@@ -219,7 +219,7 @@ export default function Swatch() {
               <div
                 className={cn(
                   'flex h-14 w-12 cursor-pointer flex-col items-center space-y-1 p-2 transition-all duration-200',
-                  index === 0 ? 'rounded-t-xl rounded-b-lg' : 'rounded-lg',
+                  index === 0 ? 'rounded-b-lg rounded-t-xl' : 'rounded-lg',
                   index === 0 ? 'bg-[#BC7BFD]' : 'bg-[#D5ACFF]',
                   'transition-all duration-200 hover:bg-opacity-80',
                 )}

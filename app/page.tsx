@@ -65,16 +65,18 @@ function AboutMe() {
       <p className="text-tertiary">About this</p>
       <div className="text-secondary flex flex-col gap-4">
         <p>
-        A place for everything and nothing, where expectations are left at the doorstep and chaos reigns supreme. 
+          A place for everything and nothing, where expectations are left at the
+          doorstep and chaos reigns supreme.
         </p>
         <p>
-          Working on multiple projects and apps, some of them you can find here, some you don&apos;t. Maybo also look at my {' '}
+          Working on multiple projects and apps, some of them you can find here,
+          some you don&apos;t. Maybo also look at my{' '}
           <ExternalLink arrow={true} href="https://github.com/PrtmPhlp">
             Github
           </ExternalLink>{' '}
           :)
         </p>
-{/*         <p>
+        {/*         <p>
           Currently studying Computer Science at BBU. Ardent in reading,
           writing, and improving consistently through learning.
         </p> */}
@@ -171,7 +173,9 @@ async function RecentWritings() {
 
   return (
     <div className="flex flex-col gap-4">
-      <a className="text-tertiary" href="writing/">Recent writing</a>
+      <a className="text-tertiary" href="writing/">
+        Recent writing
+      </a>
       <div className="space-y-2">
         {posts.map((post) => (
           <Link

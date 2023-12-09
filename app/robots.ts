@@ -9,4 +9,3 @@ export default function robots() {
     sitemap: 'https://cretu.dev/sitemap.xml',
   };
 }
-

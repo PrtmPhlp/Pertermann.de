@@ -9,9 +9,16 @@ export default function NotFound() {
         Maybe you misspelled the link. Maybe something existed here, or it
         didn&apos;t exist in the first place...
       </p>
-      <p><br />Maybe I should&apos;ve used a debugger instead of just logging... <br />Try just reloading the page :/</p>
+      <p>
+        <br />
+        Maybe I should&apos;ve used a debugger instead of just logging... <br />
+        Try just reloading the page :/
+      </p>
       <br />
-      <Link className="text-blue-500 text-xl flex justify-center items-center" href="/">
+      <Link
+        className="flex items-center justify-center text-xl text-blue-500"
+        href="/"
+      >
         Home
       </Link>
       <br />

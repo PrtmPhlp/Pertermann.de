@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@cristicrtu',
     title: 'Pertermann',
-  }
+  },
 };
 
 export default function RootLayout({
@@ -106,12 +106,12 @@ export default function RootLayout({
         {/* <div className=" ml-0.5 w-3 bg-[#228B22]  bg-[#EC605A] bg-[#EC605A] bg-[#5D0F07] bg-[#F7D358] bg-[#673D13] bg-[#61C167] bg-[#0D2805] bg-[#63C7FA] bg-[#63C7FA] bg-[#102E62] bg-[#EC79F9] bg-[#EC79F9] bg-[#5C0E63] bg-[#9f3e1b] bg-[#FF7F50] text-[#9f3e1b] text-[#5D0F07] text-[#673D13] text-[#102E62] text-[#5C0E63] text-[#0D2805]"></div> */}
         <Providers>
           <nav className="fixed bottom-4 left-2 z-50 sm:left-4 md:left-6">
-{/* <button className="rounded-full bg-blue-500 p-3">
+            {/* <button className="rounded-full bg-blue-500 p-3">
               <PlusIcon className="h-6 w-6 text-white" />
             </button> */}
             {/* <div>hey</div> */}
             <RollingMenu />
-{/* <Swatch /> */}
+            {/* <Swatch /> */}
           </nav>
           <AnimateEnter>
             <>

@@ -33,7 +33,6 @@ const components = {
   a: CustomLink,
 };
 
-
 export function Mdx({ code }: { code: string }) {
   const Component = useMDXComponent(code);
 
