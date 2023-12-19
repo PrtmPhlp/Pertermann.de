@@ -76,10 +76,6 @@ function AboutMe() {
           </ExternalLink>{' '}
           :)
         </p>
-        {/*         <p>
-          Currently studying Computer Science at BBU. Ardent in reading,
-          writing, and improving consistently through learning.
-        </p> */}
       </div>
     </div>
   );
