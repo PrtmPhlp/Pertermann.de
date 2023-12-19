@@ -3,12 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "dev-s": "NODE_OPTIONS=\"--max_old_space_size=1024\" next dev",
     "dev": "next dev",
+    "build-s": "NODE_OPTIONS=\"--max_old_space_size=1024\" next build",
     "build": "next build",
     "format": "prettier --write .",
     "lint:format": "prettier --cache --check .",
     "lint:fix": "eslint --cache --fix .",
     "lint": "eslint --cache .",
+    "start-s": "NODE_OPTIONS=\"--max_old_space_size=1024\" next start",
     "start": "next start",
     "test": "mocha"
   },
