@@ -65,7 +65,7 @@ function AboutMe() {
       <p className="text-tertiary">About this</p>
       <div className="text-secondary flex flex-col gap-4">
         <p>
-          A place for everything and nothing, where expectations are left at the
+          A place for everything and nothing, where expectations are left at the ICH MAG PIZZAA
           doorstep and chaos reigns supreme.
         </p>
         <p>
