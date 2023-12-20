@@ -12,6 +12,8 @@ on:
 jobs:
   build:
     runs-on: self-hosted
+    env:
+      HOME: /root/
 
     strategy:
       matrix:
