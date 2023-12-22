@@ -70,7 +70,7 @@ function AboutMe() {
         </p>
         <p>
           Working on multiple projects and apps, you can find some of them here,
-          some you don&apos;t. Maybo also look at my{' '}
+          some you don&apos;t. Maybe also look at my{' '}
           <ExternalLink arrow={true} href="https://github.com/PrtmPhlp">
             Github
           </ExternalLink>{' '}
