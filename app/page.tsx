@@ -69,7 +69,7 @@ function AboutMe() {
           doorstep and chaos reigns supreme.
         </p>
         <p>
-          Working on multiple projects and apps, you can find some of them here,
+          Working on multiple projects and apps, some of them you can find here,
           some you don&apos;t. Maybe also look at my{' '}
           <ExternalLink arrow={true} href="https://github.com/PrtmPhlp">
             Github
