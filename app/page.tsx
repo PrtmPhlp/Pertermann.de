@@ -158,7 +158,7 @@ function Contact() {
           title="philipp@pertermann.de"
           website="Email"
         />
-        <ContactLink href="https://" title="placeholder" website="--" />
+        <ContactLink href="about:blank" title="placeholder" website="--" />
       </div>
     </div>
   );
