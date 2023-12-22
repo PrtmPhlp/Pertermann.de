@@ -154,8 +154,8 @@ function Contact() {
           website="Email"
         />
         <ContactLink
-          href="mailto:philipp@pertermann.de"
-          title="philipp@pertermann.de"
+          href="mailto:contact@pertermann.de"
+          title="contact@pertermann.de"
           website="Email"
         />
         <ContactLink href="about:blank" title="placeholder" website="--" />
