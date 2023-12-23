@@ -33,7 +33,7 @@ jobs:
         with:
           path: |
             **/node_modules
-          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}-${{ steps.node.outputs.version }}
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
     
       - name: Install dependencies
         run: yarn install
@@ -52,8 +52,8 @@ jobs:
             ${{ runner.os }}-yarn-
       - name: Build Website
         run: yarn build-s
-      - name: Stopping pm2
-        run: /usr/local/bin/pm2 restart cretu
+      #- name: Stopping pm2
+      #  run: /usr/local/bin/pm2 stop cretu
       - name: Copy Files
         run: dbus-launch /usr/bin/gcp -rv /root/actions-runner/work-cretu/cretu.dev/cretu.dev/. /root/work-clone/
       - name: Reload Server
