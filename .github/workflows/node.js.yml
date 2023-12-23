@@ -12,8 +12,8 @@ on:
 jobs:
   build:
     runs-on: self-hosted
-    #env:
-    #  HOME: /root/
+    env:
+      HOME: /root/
 
     steps:
       - uses: actions/checkout@v4
