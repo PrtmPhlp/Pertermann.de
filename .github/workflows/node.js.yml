@@ -52,8 +52,6 @@ jobs:
             ${{ runner.os }}-yarn-
       - name: Build Website
         run: yarn build-s
-      #- name: Stopping pm2
-      #  run: /usr/local/bin/pm2 stop cretu
       - name: Copy Files
         run: /usr/bin/rsync -a --ignore-errors /root/actions-runner/work-cretu/cretu.dev/cretu.dev/. /root/work-clone/
       - name: Reload Server
