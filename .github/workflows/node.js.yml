@@ -20,12 +20,26 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: 'yarn'
+          # cache: 'yarn'
+          # cache-dependency-path: yarn.lock
+      - name: Get node version
+        id: node
+        run: |
+            echo "::set-output name=version::$(node -v)"
+  
+      - name: Get node_modules cache
+        uses: actions/cache@v3.0.2
+        id: node_modules
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}-${{ steps.node.outputs.version }}
+    
       - name: Install dependencies
         run: yarn install
       - name: Run yarn Test
         run: yarn test
-      - uses: maxnowack/local-cache@v1
+      - uses: actions/cache@v3
         with:
           # See here for caching with `yarn` https://github.com/actions/cache/blob/main/examples.md#node---yarn or you can leverage caching with actions/setup-node https://github.com/actions/setup-node
           path: |
@@ -44,3 +58,4 @@ jobs:
         run: /usr/bin/gcp -rv /root/actions-runner/work-cretu/cretu.dev/cretu.dev/. /root/work-clone/
       - name: Reload Server
         run: cd /root/work-clone && /usr/local/bin/pm2 restart cretu
+
