@@ -28,7 +28,7 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install
-      - name: Install dependencies
+      - name: Run yarn Test
         run: yarn test
       - uses: actions/cache@v3
         with:
