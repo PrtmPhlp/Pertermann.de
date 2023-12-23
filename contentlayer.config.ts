@@ -53,7 +53,7 @@ const computedFields: ComputedFields = {
       headline: doc.title,
       image: doc.image
         ? `https://cretu.dev${doc.image}`
-        : `https://cretu.dev/static/images/og.png`,
+        : `https://pertermann.de/static/images/og.png`,
       url: `https://cretu.dev/writing/${doc._raw.flattenedPath}`,
     }),
     type: 'json',

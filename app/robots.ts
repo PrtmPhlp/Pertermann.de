@@ -1,11 +1,11 @@
 export default function robots() {
   return {
-    host: 'https://cretu.dev',
+    host: 'https://pertermann.de',
     rules: [
       {
         userAgent: '*',
       },
     ],
-    sitemap: 'https://cretu.dev/sitemap.xml',
+    sitemap: 'https://pertermann.de/sitemap.xml',
   };
 }
