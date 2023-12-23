@@ -25,33 +25,22 @@ jobs:
         run: yarn install
       - name: Run yarn Test
         run: yarn test
-      # - uses: maxnowack/local-cache@v1
-      #   with:
-      #     # See here for caching with `yarn` https://github.com/actions/cache/blob/main/examples.md#node---yarn or you can leverage caching with actions/setup-node https://github.com/actions/setup-node
-      #     path: |
-      #       ~/.npm
-      #       ${{ github.workspace }}/.next/cache
-      #     # Generate a new cache whenever packages or source files change.
-      #     key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
-      #     # If source files changed but packages didn't, rebuild from a prior cache.
-      #     restore-keys: |
-      #       ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
-      
-      - uses: actions/cache@v3
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+      - uses: maxnowack/local-cache@v1
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          # See here for caching with `yarn` https://github.com/actions/cache/blob/main/examples.md#node---yarn or you can leverage caching with actions/setup-node https://github.com/actions/setup-node
+          path: |
+            ~/.npm
+            ${{ github.workspace }}/.next/cache
+          # Generate a new cache whenever packages or source files change.
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+          # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
-            ${{ runner.os }}-yarn-
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
       - name: Build Website
         run: yarn build-s
       - name: Stopping pm2
-        run: /usr/local/bin/pm2 stop cretu
+        run: /usr/local/bin/pm2 restart cretu
       - name: Copy Files
-        run: cp -r /root/actions-runner/work-cretu/cretu.dev/cretu.dev/. /root/work-clone/
+        run: /usr/bin/gcp -rv /root/actions-runner/work-cretu/cretu.dev/cretu.dev/. /root/work-clone/
       - name: Reload Server
-        run: cd /root/work-clone && /usr/local/bin/pm2 start cretu
+        run: cd /root/work-clone && /usr/local/bin/pm2 restart cretu
