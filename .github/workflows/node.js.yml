@@ -32,7 +32,7 @@ jobs:
       - name: Install dependencies
         run: yarn test
       - name: Build Website
-        run: yarn build-s
+        run: yarn build
       - name: Copy Files
         run: /usr/bin/rsync -a --ignore-errors /root/actions-runner/work-cretu/cretu.dev/cretu.dev/. /root/work-clone/
       - name: Reload Server
