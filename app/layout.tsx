@@ -6,13 +6,12 @@ import AnimateEnter from '@/ui/AnimateEnter';
 import RollingMenu from '@/ui/RollingMenu';
 import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { Viewport } from 'next'
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const viewport = {
   themeColor: '#4e4bec',
-}
+};
 
 export const metadata: Metadata = {
   authors: [{ name: 'Pertermann', url: 'https://pertermann.de' }],
