@@ -31,9 +31,9 @@ jobs:
       - name: Install dependencies
         run: bun install
       - name: Run Test
-        run: bun test
+        run: bun run test
       - name: Build Website
-        run: bun build
+        run: bun run build
       - name: Copy Files
         run: /usr/bin/rsync -a --ignore-errors /root/actions-runner/work-cretu/cretu.dev/cretu.dev/. /root/work-clone/
       - name: Reload Server
