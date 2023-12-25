@@ -22,10 +22,11 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
       - uses: actions/checkout@v4
-      - name: Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20.x'
+      - uses: oven-sh/setup-bun@v1
+      #- name: Use Node.js
+        #uses: actions/setup-node@v3
+      #  with:
+      #    node-version: '20.x'
           #cache: 'yarn'
       - name: Install dependencies
         run: bun install
