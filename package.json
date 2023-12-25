@@ -1,5 +1,5 @@
 {
-  "name": "cretu.dev",
+  "name": "pertermann.de",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -64,26 +64,17 @@
   },
   "license": "MIT",
   "author": {
-    "email": "crisemcr@gmail.com",
+    "email": "contact@pertermann.de",
     "name": "Pertermann",
-    "url": "https://cretu.dev"
+    "url": "https://pertermann.de"
   },
-  "homepage": "https://cretu.dev",
+  "homepage": "https://pertermann.de",
   "bugs": {
-    "url": "https://github.com/cristicretu/cretu.dev/issues"
+    "url": "https://github.com/PrtmPhlp/cretu.dev/issues"
   },
   "browserslist": [
     ">0.2%",
     "not dead",
     "not op_mini all"
-  ],
-  "keywords": [
-    "tailwindcss",
-    "template",
-    "radix",
-    "react",
-    "nextjs",
-    "portfolio",
-    "personal-site"
   ]
 }

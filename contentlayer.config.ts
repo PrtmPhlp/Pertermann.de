@@ -52,9 +52,9 @@ const computedFields: ComputedFields = {
       description: doc.summary,
       headline: doc.title,
       image: doc.image
-        ? `https://cretu.dev${doc.image}`
+        ? `https://pertermann.de${doc.image}`
         : `https://pertermann.de/static/images/og.png`,
-      url: `https://cretu.dev/writing/${doc._raw.flattenedPath}`,
+      url: `https://pertermann.de/writing/${doc._raw.flattenedPath}`,
     }),
     type: 'json',
   },
