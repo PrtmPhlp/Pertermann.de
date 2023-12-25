@@ -31,8 +31,8 @@ export async function generateMetadata({
     slug,
   } = post;
   const ogImage = image
-    ? `https://cretu.dev${image}`
-    : `https://cretu.dev/api/og?title=${title}`;
+    ? `https://pertermann.de${image}`
+    : `https://pertermann.de/api/og?title=${title}`;
 
   return {
     description,
@@ -46,7 +46,7 @@ export async function generateMetadata({
       publishedTime,
       title,
       type: 'article',
-      url: `https://cretu.dev/blog/${slug}`,
+      url: `https://pertermann.de/blog/${slug}`,
     },
     title,
     twitter: {
@@ -59,7 +59,7 @@ export async function generateMetadata({
 }
 
 const editUrl = (slug: string) =>
-  `https://github.com/cristicretu/cretu.dev/edit/main/data/writing/${slug}.mdx`;
+  `https://github.com/PrtmPhlp/cretu.dev/edit/main/data/writing/${slug}.mdx`;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default async function WritingPost({ params }: { params: any }) {
