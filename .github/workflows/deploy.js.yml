@@ -35,6 +35,6 @@ jobs:
       - name: Build Website
         run: bun run build
       - name: Copy Files
-        run: /usr/bin/rsync -a --ignore-errors /root/actions-runner/work-cretu/cretu.dev/cretu.dev/. /root/work-clone/
+        run: /usr/bin/rsync -avhn --delete /root/actions-runner/work-cretu/cretu.dev/cretu.dev/. /root/work-clone/
       - name: Reload Server
         run: cd /root/work-clone && /usr/local/bin/pm2 restart cretu
