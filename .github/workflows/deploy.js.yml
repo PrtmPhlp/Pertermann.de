@@ -28,11 +28,11 @@ jobs:
           node-version: '20.x'
           #cache: 'yarn'
       - name: Install dependencies
-        run: yarn install
+        run: bun install
       - name: Run Test
-        run: yarn test
+        run: bun test
       - name: Build Website
-        run: yarn build
+        run: bun build
       - name: Copy Files
         run: /usr/bin/rsync -a --ignore-errors /root/actions-runner/work-cretu/cretu.dev/cretu.dev/. /root/work-clone/
       - name: Reload Server
