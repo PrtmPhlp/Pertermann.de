@@ -40,8 +40,9 @@ export const metadata: Metadata = {
     'pertermann.de',
   ],
   manifest: '/static/favicons/site.webmanifest',
+  metadataBase: new URL('https://pertermann.de'),
   openGraph: {
-    description: 'Design Engineer.',
+    description: 'The React Framework for the Web',
     images: [
       {
         alt: 'Pertermann',
@@ -50,9 +51,9 @@ export const metadata: Metadata = {
         width: 1920,
       },
     ],
-    locale: 'de-DE',
-    siteName: 'Pertermann',
-    title: 'Pertermann',
+    locale: 'de_DE',
+    siteName: 'Pertermann.de',
+    title: 'Pertermann.de',
     type: 'website',
     url: 'https://pertermann.de',
   },
@@ -74,7 +75,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@cristicrtu',
+    site: '@prtmphlp',
     title: 'Pertermann',
   },
 };
@@ -85,7 +86,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning translate="no">
       <body
         className={cn(
           `${inter.className}`,
