@@ -34,8 +34,8 @@ jobs:
         run: bun run test
       - name: Build Website
         run: bun run build
-      - shell: bash
-        name: Rsync
+      - name: Copy Files
+        shell: bash
         env:
           RUNNER_WORK_LOCATION: ${{ secrets.RUNNER_WORK_LOCATION }}
           SERVER_LOCATION: ${{ secrets.SERVER_DEPLOY_LOCATION }}
@@ -43,8 +43,8 @@ jobs:
           /usr/bin/rsync -ah --delete $RUNNER_WORK_LOCATION $SERVER_LOCATION
       # - name: Copy Files
         # run: /usr/bin/rsync -ah --delete ${{ secrets.RUNNER_WORK_LOCATION }}/cretu.dev/cretu.dev/. ${{ secrets.SERVER_LOCATION }}
-      - shell: bash
-        name: Reload Server
+      - name: Reload Server
+        shell: bash
         env:
           SERVER_LOCATION: ${{ secrets.SERVER_DEPLOY_LOCATION }}
         run: |
