@@ -40,6 +40,7 @@ jobs:
           RUNNER_WORK_LOCATION: ${{ secrets.RUNNER_WORK_LOCATION }}
           SERVER_LOCATION: ${{ secrets.SERVER_DEPLOY_LOCATION }}
         run: |
+          echo "Copying files from $RUNNER_WORK_LOCATION to $SERVER_LOCATION"
           /usr/bin/rsync -ah --delete $RUNNER_WORK_LOCATION $SERVER_LOCATION
       # - name: Copy Files
         # run: /usr/bin/rsync -ah --delete ${{ secrets.RUNNER_WORK_LOCATION }}/cretu.dev/cretu.dev/. ${{ secrets.SERVER_LOCATION }}
