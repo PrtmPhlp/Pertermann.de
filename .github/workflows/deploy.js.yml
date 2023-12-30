@@ -14,7 +14,7 @@ jobs:
   build:
     runs-on: self-hosted
     env:
-      HOME: /root/
+      HOME: ${{ secrets.SERVER_HOME }}
 
     strategy:
       matrix:
@@ -35,6 +35,6 @@ jobs:
       - name: Build Website
         run: bun run build
       - name: Copy Files
-        run: /usr/bin/rsync -ah --delete /root/actions-runner/work-cretu/cretu.dev/cretu.dev/. /root/work-clone/
+        run: /usr/bin/rsync -ah --delete ${{ secrets.RUNNER_WORK_LOCATION }}/cretu.dev/cretu.dev/. ${{ secrets.SERVER_LOCATION }}
       - name: Reload Server
-        run: cd /root/work-clone && /usr/local/bin/pm2 restart cretu
+        run: cd ${{ secrets.SERVER_LOCATION }} && /usr/local/bin/pm2 restart cretu
