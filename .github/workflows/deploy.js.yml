@@ -38,14 +38,14 @@ jobs:
         name: Rsync
         env:
           RUNNER_WORK_LOCATION: ${{ secrets.RUNNER_WORK_LOCATION }}
-          SERVER_LOCATION: ${{ secrets.SERVER_LOCATION }}
+          SERVER_LOCATION: ${{ secrets.SERVER_DEPLOY_LOCATION }}
         run: |
-          /usr/bin/rsync -ah --delete ${RUNNER_WORK_LOCATION}/cretu.dev/cretu.dev/. $SERVER_LOCATION
+          /usr/bin/rsync -ah --delete $RUNNER_WORK_LOCATION $SERVER_LOCATION
       # - name: Copy Files
         # run: /usr/bin/rsync -ah --delete ${{ secrets.RUNNER_WORK_LOCATION }}/cretu.dev/cretu.dev/. ${{ secrets.SERVER_LOCATION }}
       - shell: bash
         name: Reload Server
         env:
-          SERVER_LOCATION: ${{ secrets.SERVER_LOCATION }}
+          SERVER_LOCATION: ${{ secrets.SERVER_DEPLOY_LOCATION }}
         run: |
-          cd ${{ secrets.SERVER_LOCATION }} && /usr/local/bin/pm2 restart cretu
+          cd $secrets.SERVER_DEPLOY_LOCATION && /usr/local/bin/pm2 restart cretu
