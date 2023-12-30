@@ -149,16 +149,21 @@ function Contact() {
           website="Instagram"
         />
         <ContactLink
-          href="mailto:hello@pertermann.de"
-          title="hello@pertermann"
+          href="mailto:contact@pertermann.de"
+          title="contact@pertermann"
           website="Email"
         />
         <ContactLink
-          href="mailto:contact@pertermann.de"
-          title="contact@pertermann.de"
-          website="Email"
+          href="https://status.pertermann.de"
+          title="Systemstatus"
+          website="Surveillance"
         />
-        <ContactLink href="about:blank" title="placeholder" website="--" />
+        <ContactLink
+          href="https://admin.pertermann.de"
+          title="AdminPanel"
+          website="Surveillance"
+        />
+        {/* <ContactLink href="about:blank" title="placeholder" website="--" /> */}
       </div>
     </div>
   );

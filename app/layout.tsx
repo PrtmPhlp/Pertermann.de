@@ -9,9 +9,11 @@ import { Inter } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const viewport = {
-  themeColor: '#4e4bec',
-};
+export function generateViewport() {
+  return {
+    themeColor: '#4e4bec',
+  };
+}
 
 export const metadata: Metadata = {
   authors: [{ name: 'Pertermann', url: 'https://pertermann.de' }],
