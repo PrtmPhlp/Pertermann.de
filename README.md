@@ -1,6 +1,6 @@
 ## cretu.dev files for Pertermann.de
 
-[![Yarn Build](https://github.com/PrtmPhlp/cretu.dev/actions/workflows/node.js.yml/badge.svg)](https://github.com/PrtmPhlp/cretu.dev/actions/workflows/node.js.yml)
+[![Yarn Build](https://github.com/PrtmPhlp/cretu.dev/actions/workflows/deploy.js.yml/badge.svg)](https://github.com/PrtmPhlp/cretu.dev/actions/workflows/deploy.js.yml)
 
 Personal corner of the internet. Minimal design, quirky interactions. Representative of me 💫.
 
