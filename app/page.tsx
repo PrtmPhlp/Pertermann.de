@@ -150,7 +150,7 @@ function Contact() {
         />
         <ContactLink
           href="mailto:contact@pertermann.de"
-          title="contact@pertermann"
+          title="contact@pertermann.de"
           website="Email"
         />
         <ContactLink
