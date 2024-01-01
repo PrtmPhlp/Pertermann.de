@@ -134,14 +134,14 @@ function Contact() {
       <p className="text-tertiary">Links</p>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         <ContactLink
-          href="https://X.com/PrtmPhlp"
-          title="@prtmphlp"
-          website="X"
-        />
-        <ContactLink
           href="https://github.com/PrtmPhlp"
           title="PrtmPhlp"
           website="GitHub"
+        />
+        <ContactLink
+          href="https://X.com/PrtmPhlp"
+          title="@prtmphlp"
+          website="X"
         />
         <ContactLink
           href="https://www.instagram.com/PrtmPhlp"
