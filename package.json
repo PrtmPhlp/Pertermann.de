@@ -5,6 +5,7 @@
   "scripts": {
     "dev-s": "NODE_OPTIONS=\"--max_old_space_size=1024\" next dev",
     "dev": "next dev",
+    "dev-t": "next dev --turbo",
     "build-s": "NODE_OPTIONS=\"--max_old_space_size=1024\" next build",
     "build": "next build",
     "format": "prettier --write .",

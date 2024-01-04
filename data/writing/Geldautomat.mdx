@@ -1,0 +1,299 @@
+---
+title: Geldautomat als Pythonskript
+publishedAt: 2024-01-02
+summary: Python Skript zur Aufteilung von Geldbeträgen in Scheine
+image: /static/images/Geldautomat/banner.png
+---
+
+## Einleitung
+
+PEP8 [^1] konformes Python Skript zur Wechselgeldberechnung eines Geldbetrages in Euro und Cent
+
+## Basisskript
+
+
+Zusätzliche Features:
+- Rest Angabe, um die Berechnung leichter zu kontrollieren.
+- Umwandlung von Kommas auf Punkte, um Verwirrung in der Eingabe zu vermeiden
+- Es wird auf zwei Nachkommastellen gerundet um Floating Point Fehler zu vermeiden [^2]
+
+
+```python showLineNumbers title="Main.py"
+# Eingabe des Betrags in Euro
+betrag_in_euro = input("Bitte Betrag in Euro eingeben: ")
+
+# Umwandlung des Betrags in Cent. Ausserdem werden Kommas in Punkte umgewandelt
+betrag_in_cent = float(betrag_in_euro.replace(',', '.')) * 100
+
+# Verfügbare Scheine und Münzen in Euro
+einheiten_in_euro = [100, 50, 20, 10, 5, 2, 1, 0.50, 0.20, 0.10, 0.05, 0.02, 0.01]
+
+# Variable festlegen, damit wir sie später verwenden können
+ergebnis = {}
+
+# Berechnung des Wechselgelds für jede Einheit
+for einheit in einheiten_in_euro:
+    anzahl = 0
+    # Solange der Betrag in Cent größer oder gleich der aktuellen Einheit ist
+    while betrag_in_cent >= int(einheit * 100):
+        # ...wird der Wert der aktuellen Einheit von betrag_in_cent abgezogen
+        betrag_in_cent -= int(einheit * 100)
+        anzahl += 1
+    # Solange ein oder mehr Scheine benötigt werden, fügen wir sie zum Ergebnis hinzu
+    if anzahl > 0:
+        # Hinzufügen der Einheit und des Euro-Betrags zum Ergebnis
+        ergebnis[f"{anzahl} x {einheit} Euro"] = (anzahl * einheit, betrag_in_cent / 100)
+
+# Ausgabe des Wechselgelds
+output = "Wechselgeld:\n"
+for einheit, (euro_betrag, rest) in ergebnis.items():
+    output += f"{einheit}: {euro_betrag}€ (Rest: {rest:.2f}€)\n"
+
+# Ausgabe des gesamten Ergebnisses
+print(output)
+```
+---
+
+Soviel dazu. Jetzt wollen wir das ganze aber etwas professioneller darstellen. Das ganze ist in mehrere Schritte aufgeteilt.
+
+### 1. Aufteilen
+
+Das Basis Skript ist jetzt in zwei Teile eingeteilt: Die eigentliche Funktion als `berechne_wechselgeld()` und _alles andere_
+
+#### Funktion `berechne_wechselgeld(betrag_in_euro)`
+
+```python showLineNumbers title="berechne_wechselgeld()"
+def berechne_wechselgeld(betrag_in_euro):
+    # Umwandlung des Betrags in Cent
+    betrag_in_cent = float(betrag_in_euro.replace(',', '.')) * 100
+
+    # Verfügbare Scheine und Münzen in Euro
+    einheiten_in_euro = [100, 50, 20, 10, 5, 2, 1, 0.50, 0.20, 0.10, 0.05, 0.02, 0.01]
+
+    # Variable festlegen, damit wir sie später verwenden können
+    ergebnis = {}
+
+    # Berechnung des Wechselgelds für jede Einheit
+    for einheit in einheiten_in_euro:
+        anzahl = 0
+        # Solange der Betrag in Cent größer oder gleich der aktuellen Einheit ist
+        while betrag_in_cent >= int(einheit * 100):
+            # ...wird der Wert der aktuellen Einheit von betrag_in_cent abgezogen
+            betrag_in_cent -= int(einheit * 100)
+            anzahl += 1
+        # Solange ein oder mehr Scheine benötigt werden, fügen wir sie zum Ergebnis hinzu
+        if anzahl > 0:
+            # Hinzufügen der Einheit und des Euro-Betrags zum Ergebnis
+            ergebnis[f"{anzahl} x {einheit} Euro"] = (anzahl * einheit, betrag_in_cent / 100)
+
+    return ergebnis
+```
+---
+#### *alles andere*
+
+Durch den Python "Trick" `if __name__ == '__main__':` wird der in dieser if Schleife deklarierte Code nur ausgeführt, wenn das Programm direkt vom User ausgeführt wird. Das hat den Vorteil, dass wenn das Skript als Modul eines anderen Programmes genutzt wird, der dortige Code ignoriert wird. Das machen wir uns zunutze und schreiben hier unseren UX Code hinein. 
+
+
+```python showLineNumbers title="__name__ == '__main__'"
+if __name__ == '__main__':
+    # Eingabe des Betrags in Euro
+    betrag_in_euro = input("Bitte Betrag in Euro eingeben: ")
+
+    if not betrag_in_euro:
+        print("Keine Eingabe, das Programm wird beendet.")
+        exit()
+
+      # Basis Programm ausführen
+      wechselgeld_ergebnis = berechne_wechselgeld(betrag_in_euro)
+
+      # Ausgabe des Wechselgelds
+      output = "Wechselgeld:\n"
+      for einheit, (euro_betrag, rest) in wechselgeld_ergebnis.items():
+          output += f"{einheit}: {euro_betrag}€ (Rest: {rest:.2f}€)\n"
+
+      # Ausgabe des gesamten Ergebnisses
+      print(output)
+```
+---
+
+### 2. Fehler Verarbeitung
+
+Im Falle eines Valueerrors, wie wenn wir Buchstaben anstatt von Zahlen in die Eingabe setzen, crasht das Skript. Mit dem `try` `except` Befehl können wir das Programm versuchen lassen, den Code auszuführen, wenn aber ein Error zustande kommt, den Fehler als Variable speichern.
+
+```python showLineNumbers title="try und except"
+if __name__ == '__main__':
+    # Eingabe des Betrags in Euro
+    betrag_in_euro = input("Bitte Betrag in Euro eingeben: ")
+
+    if not betrag_in_euro:
+        print("Keine Eingabe, das Programm wird beendet.")
+        exit()
+
+    try:
+        # Basis Programm ausführen
+        wechselgeld_ergebnis = berechne_wechselgeld(betrag_in_euro)
+
+        # Ausgabe des Wechselgelds
+        output = "Wechselgeld:\n"
+        for einheit, (euro_betrag, rest) in wechselgeld_ergebnis.items():
+            output += f"{einheit}: {euro_betrag}€ (Rest: {rest:.2f}€)\n"
+
+        # Ausgabe des gesamten Ergebnisses
+        print(output)
+    except ValueError as Error:
+        print(f"Fehler: {Error}")
+```
+Der Output wäre jetzt anstatt
+```shell
+Bitte Betrag in Euro eingeben: abc
+Traceback (most recent call last):
+  File "$PATH/main.py", line 21, in <module>
+    betrag_in_cent = float(betrag_in_euro.replace(',', '.')) * 100
+ValueError: could not convert string to float: 'abc'
+```
+so:
+```shell
+Bitte Betrag in Euro eingeben: abc
+Fehler: could not convert string to float: 'abc'
+```
+und der Exitcode beträgt immer noch `0`
+
+### 3. Module
+
+Durch die Nutzung der vorhin besprochenen Funktion, können wir das Programm nun als Modul in einer anderen Datei verwenden. Das hat folgende Vorteile:
+- Einfache Integrierung in andere Programme durch "leise" Ausgabe
+- Bessere Lesbarkeit durch Auslagerung
+
+Ein Beispiel hierfür wäre:
+```python showLineNumbers title="Modul.py"
+import Geldautomat
+from time import sleep
+
+# Einfache Abfrage des Nutzers:
+eingabe = str(input("Welcher Betrag soll berechnet werden? "))
+print(Geldautomat.berechne_wechselgeld(eingabe))
+
+sleep(2)
+
+# Repetitive Nutzung:
+for i in range(100):
+    i = str(i)
+    print(Geldautomat.berechne_wechselgeld(i))
+```
+und der Output ist: 
+```shell
+Welcher Betrag soll berechnet werden? 456
+{'4 x 100 Euro': (400, 56.0), '1 x 50 Euro': (50, 6.0), '1 x 5 Euro': (5, 1.0), '1 x 1 Euro': (1, 0.0)}
+{}
+{'1 x 1 Euro': (1, 0.0)}
+{'1 x 2 Euro': (2, 0.0)}
+{'1 x 2 Euro': (2, 1.0), '1 x 1 Euro': (1, 0.0)}
+{'2 x 2 Euro': (4, 0.0)}
+{'1 x 5 Euro': (5, 0.0)}
+[...]
+```
+
+### 4. Unittest
+
+Das testing framework Unittest ist seit Python Version 2.1 in den Standart Bibliotheken integriert.
+Durch die leichte Definition von Testabläufen, können wir Programme so mit Leichtigkeit auf ihre Robustheit testen.
+Das Programm wird hier auf folgende Funktionen getestet:
+
+- Genauigkeit
+- Negative Zahlen
+- Große Zahlen
+- Kleine Zahlen
+- Kommas als Trennzeichen
+- Mehrere Nachkommastellen
+
+```python showLineNumbers title="Unittest.py"
+import unittest
+import Geldautomat  # Importiere die Datei Geldautomat mit ihren Funktionen als Datei
+
+class TestWechselgeldBerechnung(unittest.TestCase):
+    def test_genauigkeit(self):
+        # Testen, ob der Betrag genau in die kleinsten Einheiten aufgeteilt wird
+        betrag = "1623.45"  # Beispielbetrag als Zeichenkette
+        ergebnis = Geldautomat.berechne_wechselgeld(betrag)
+        self.assertTrue(sum(euro for euro, _ in ergebnis.values()) == float(betrag), "Die Gesamtsumme stimmt nicht überein.")
+    def test_negative_zahlen(self):
+        # Testen, wie das Skript auf negative Zahlen reagiert
+        betrag = "-50"  # Beispielbetrag als Zeichenkette
+        ergebnis = Geldautomat.berechne_wechselgeld(betrag)
+        self.assertEqual(len(ergebnis), 0, "Negative Beträge sollten keine Ergebnisse liefern.")
+    def test_grosse_zahlen(self):
+        # Testen mit einem sehr hohen Betrag
+        betrag = "334598764.34"  # Beispielbetrag als Zeichenkette
+        ergebnis = Geldautomat.berechne_wechselgeld(betrag)
+        self.assertTrue(len(ergebnis) > 0, "Große Zahlen sollten verarbeitet werden können.")
+    def test_kleine_zahlen(self):
+        # Testen mit einem sehr kleinen Betrag
+        betrag = "0.03"  # Beispielbetrag als Zeichenkette
+        ergebnis = Geldautomat.berechne_wechselgeld(betrag)
+        self.assertTrue(len(ergebnis) > 0, "Cents sollten verarbeitet werden können.")
+    def test_komma_als_trennzeichen(self):
+        # Testen, ob ein Betrag mit einem Komma anstatt eines Punktes als Trennzeichen funktioniert
+        betrag = "1234,56"  # Beispielbetrag mit Punkt als Zeichenkette
+        lösung = betrag.replace(',', '.')  # Da Python mit Punkten als Trennungszeichen rechnet, müssen wir das ganze hier modifizieren
+        ergebnis = Geldautomat.berechne_wechselgeld(betrag)
+        self.assertTrue(sum(euro for euro, _ in ergebnis.values()) == float(lösung), "Punkt als Trennzeichen sollte funktionieren.")
+    def test_viele_nachkommastellen(self):
+        # Testen, ob Eingaben mit vielen Nachkommastellen korrekt bearbeitet werden
+        betrag = "456.56565567"  # Beispielbetrag mit vielen Nachkommastellen als Zeichenkette
+        ergebnis = Geldautomat.berechne_wechselgeld(betrag)
+        self.assertTrue(sum(euro for euro, _ in ergebnis.values()) == 456.56, "Eingaben mit vielen Nachkommastellen sollten bis zur zweiten Nachkommastelle abgeschnitten werden.")
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)
+```
+Und der output:
+```shell
+test_genauigkeit (__main__.TestWechselgeldBerechnung) ... ok
+test_grosse_zahlen (__main__.TestWechselgeldBerechnung) ... ok
+test_kleine_zahlen (__main__.TestWechselgeldBerechnung) ... ok
+test_komma_als_trennzeichen (__main__.TestWechselgeldBerechnung) ... ok
+test_negative_zahlen (__main__.TestWechselgeldBerechnung) ... ok
+test_viele_nachkommastellen (__main__.TestWechselgeldBerechnung) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.528s
+
+OK
+```
+
+Falls nun einer der Fälle einen Error ausspuckt, weil er nicht korrekt durchläuft sähe das wie folgt aus:
+```shell
+test_genauigkeit (__main__.TestWechselgeldBerechnung) ... ok
+test_grosse_zahlen (__main__.TestWechselgeldBerechnung) ... ERROR
+test_kleine_zahlen (__main__.TestWechselgeldBerechnung) ... ok
+test_komma_als_trennzeichen (__main__.TestWechselgeldBerechnung) ... ok
+test_negative_zahlen (__main__.TestWechselgeldBerechnung) ... ok
+test_viele_nachkommastellen (__main__.TestWechselgeldBerechnung) ... ok
+
+======================================================================
+ERROR: test_grosse_zahlen (__main__.TestWechselgeldBerechnung)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "$PATH/Unittest.py", line 34, in test_grosse_zahlen
+    ergebnis = Geldautomat.berechne_wechselgeld(betrag)
+  File "$PATH/Geldautomat.py", line 23, in berechne_wechselgeld
+    betrag_in_cent = float(betrag_in_euro.replace(',', '.')) * 100
+ValueError: could not convert string to float: '334e598764.34'
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.001s
+
+FAILED (errors=1)
+```
+
+#### Info:
+Folgende Dateien sind hier zum Download möglich: 
+1. [Main.py](/static/Geldautomat/main.py)
+2. [Erweitert - Geldautomat.py](/static/Geldautomat/Erweitert/Geldautomat.py)
+3. [Erweitert - Unittest.py](/static/Geldautomat/Erweitert/Unittest.py)
+4. [Erweitert - Modul-Beispiel.py](/static/Geldautomat/Erweitert/Modul-Beispiel.py)
+5. [ZIP Ordner](/static/Geldautomat/Geldscheine.zip)
+6. [Code über Github](https://github.com/PrtmPhlp/cretu.dev/tree/main/public/static/Geldautomat)
+
+[^1]: https://peps.python.org/pep-0008/
+[^2]: https://docs.python.org/tutorial/floatingpoint
