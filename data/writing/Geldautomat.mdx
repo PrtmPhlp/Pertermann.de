@@ -1,28 +1,29 @@
+``````markdown
 ---
-title: Geldautomat als Pythonskript
+title: Geldautomat als Python-Skript
 publishedAt: 2024-01-02
-summary: Python Skript zur Aufteilung von Geldbeträgen in Scheine
+summary: Python-Skript zur Aufteilung von Geldbeträgen in Scheine
 image: /static/images/Geldautomat/banner.png
 ---
 
 ## Einleitung
 
-PEP8[^1] konformes Pythonskript zur Wechselgeldberechnung eines Geldbetrages in Euro und Cent
+PEP8[^1] konformes Python-Skript zur Wechselgeldberechnung eines Geldbetrages in Euro und Cent
 
 ## Basisskript
 
 
 Zusätzliche Features:
-- Rest Angabe, um die Berechnung leichter zu kontrollieren.
-- Umwandlung von Kommas auf Punkte, um Verwirrung in der Eingabe zu vermeiden
-- Es wird auf zwei Nachkommastellen gerundet um Floatingpointfehler zu vermeiden[^2]
+- Restangabe, um die Berechnung leichter zu kontrollieren.
+- Umwandlung von Kommas in Punkte, um Verwirrung in der Eingabe zu vermeiden
+- Es wird auf zwei Nachkommastellen gerundet, um Floating-Point-Fehler zu vermeiden[^2]
 
 
 ```python showLineNumbers title="Main.py"
 # Eingabe des Betrags in Euro
 betrag_in_euro = input("Bitte Betrag in Euro eingeben: ")
 
-# Umwandlung des Betrags in Cent. Ausserdem werden Kommas in Punkte umgewandelt
+# Umwandlung des Betrags in Cent. Außerdem werden Kommas in Punkte umgewandelt
 betrag_in_cent = float(betrag_in_euro.replace(',', '.')) * 100
 
 # Verfügbare Scheine und Münzen in Euro
@@ -54,11 +55,11 @@ print(output)
 ```
 ---
 
-Soviel dazu. Jetzt wollen wir das ganze aber etwas professioneller darstellen. Das ganze ist in mehrere Schritte aufgeteilt.
+Soviel dazu. Jetzt wollen wir das Ganze aber etwas professioneller darstellen. Das Ganze ist in mehrere Schritte aufgeteilt.
 
 ### 1. Aufteilen
 
-Das Basis Skript ist jetzt in zwei Teile eingeteilt: Die eigentliche Funktion als `berechne_wechselgeld()` und _alles andere_
+Das Basisskript ist jetzt in zwei Teile eingeteilt: Die eigentliche Funktion als `berechne_wechselgeld()` und _alles andere_
 
 #### Funktion `berechne_wechselgeld(betrag_in_euro)`
 
@@ -91,7 +92,7 @@ def berechne_wechselgeld(betrag_in_euro):
 ---
 #### *alles andere*
 
-Durch den Python "Trick" `if __name__ == '__main__':` wird der in dieser if Schleife deklarierte Code nur ausgeführt, wenn das Programm direkt vom User ausgeführt wird. Das hat den Vorteil, dass wenn das Skript als Modul eines anderen Programmes genutzt wird, der dortige Code ignoriert wird. Das machen wir uns zunutze und schreiben hier unseren UX Code hinein. 
+Durch den Python-"Trick" `if __name__ == '__main__':` wird der in dieser if-Schleife deklarierte Code nur ausgeführt, wenn das Programm direkt vom User ausgeführt wird. Das hat den Vorteil, dass wenn das Skript als Modul eines anderen Programms genutzt wird, der dortige Code ignoriert wird. Das machen wir uns zunutze und schreiben hier unseren UX-Code hinein. 
 
 
 ```python showLineNumbers title="__name__ == '__main__'"
@@ -103,7 +104,7 @@ if __name__ == '__main__':
         print("Keine Eingabe, das Programm wird beendet.")
         exit()
 
-      # Basis Programm ausführen
+      # Basisprogramm ausführen
       wechselgeld_ergebnis = berechne_wechselgeld(betrag_in_euro)
 
       # Ausgabe des Wechselgelds
@@ -116,9 +117,9 @@ if __name__ == '__main__':
 ```
 ---
 
-### 2. Fehler Verarbeitung
+### 2. Fehlerverarbeitung
 
-Im Falle eines Valueerrors, wie wenn wir Buchstaben anstatt von Zahlen in die Eingabe setzen, crasht das Skript. Mit dem `try` `except` Befehl können wir das Programm versuchen lassen, den Code auszuführen, wenn aber ein Error zustande kommt, den Fehler als Variable speichern.
+Im Falle eines ValueErrors, wie wenn wir Buchstaben anstatt von Zahlen in die Eingabe setzen, crasht das Skript. Mit dem `try`-`except`-Befehl können wir das Programm versuchen lassen, den Code auszuführen, wenn aber ein Error zustande kommt, den Fehler als Variable speichern.
 
 ```python showLineNumbers title="try und except"
 if __name__ == '__main__':
@@ -130,7 +131,7 @@ if __name__ == '__main__':
         exit()
 
     try:
-        # Basis Programm ausführen
+        # Basisprogramm ausführen
         wechselgeld_ergebnis = berechne_wechselgeld(betrag_in_euro)
 
         # Ausgabe des Wechselgelds
@@ -161,7 +162,7 @@ und der Exitcode beträgt immer noch `0`
 ### 3. Module
 
 Durch die Nutzung der vorhin besprochenen Funktion, können wir das Programm nun als Modul in einer anderen Datei verwenden. Das hat folgende Vorteile:
-- Einfache Integrierung in andere Programme durch "leise" Ausgabe
+- Einfache Integration in andere Programme durch "leise" Ausgabe
 - Bessere Lesbarkeit durch Auslagerung
 
 Ein Beispiel hierfür wäre:
@@ -195,8 +196,8 @@ Welcher Betrag soll berechnet werden? 456
 
 ### 4. Unittest
 
-Das testing framework Unittest ist seit Python Version 2.1 in den Standart Bibliotheken integriert.
-Durch die leichte Definition von Testabläufen, können wir Programme so mit Leichtigkeit auf ihre Robustheit testen.
+Das Testing-Framework Unittest ist seit Python Version 2.1 in den Standardbibliotheken integriert.
+Durch die leichte Definition von Testabläufen können wir Programme mit Leichtigkeit auf ihre Robustheit testen.
 Das Programm wird hier auf folgende Funktionen getestet:
 
 - Genauigkeit
@@ -246,7 +247,8 @@ class TestWechselgeldBerechnung(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main(verbosity=2)
 ```
-Und der output:
+Und der Output:
+
 ```shell
 test_genauigkeit (__main__.TestWechselgeldBerechnung) ... ok
 test_grosse_zahlen (__main__.TestWechselgeldBerechnung) ... ok
