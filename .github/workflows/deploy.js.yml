@@ -34,7 +34,7 @@ jobs:
       - name: Run Test
         run: bun run test
       - name: Build Website
-        run: bun run build
+        run: bun run build-s
       - name: Copy Files
         shell: bash
         env:

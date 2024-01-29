@@ -1,5 +1,6 @@
 'use client';
 
+import ExternalLink from '@/ui/ExternalLink';
 import { OrbitControls } from '@react-three/drei';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
@@ -10,7 +11,9 @@ export default function Footer() {
       <FooterGraphic />
       <p className="flex flex-col gap-4">
         © 2022 - {new Date().getFullYear()} Pertermann. All Rights Reserved.
-        <span>www.pertermann.de v.2024.01</span>
+        <a href="/">
+        www.pertermann.de v.2024.01
+        </a>
         <span>Website built using components like Next.js & ThreeJS.</span>
       </p>
     </footer>
