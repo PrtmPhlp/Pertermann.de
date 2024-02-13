@@ -23,6 +23,7 @@
     "contentlayer": "^0.3.4",
     "date-fns": "^2.30.0",
     "framer-motion": "^10.12.18",
+    "lodash": "latest",
     "next": "^14.1.0",
     "next-contentlayer": "^0.3.4",
     "next-plausible": "^3.12.0",
