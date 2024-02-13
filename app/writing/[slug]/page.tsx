@@ -4,7 +4,7 @@ import { getRelativeTimeString } from '@/lib/relativeDate';
 import ExternalLink from '@/ui/ExternalLink';
 import { Mdx } from '@/ui/MDXComponents';
 import { Metadata } from 'next';
-import Image from "next/image";
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 export async function generateStaticParams() {
@@ -86,12 +86,13 @@ export default async function WritingPost({ params }: { params: any }) {
         <Image
           alt={post.title}
           className="rounded-lg"
-          src={post.image}
           fill
           sizes="100vw"
+          src={post.image}
           style={{
-            objectFit: "cover"
-          }} />
+            objectFit: 'cover',
+          }}
+        />
       </div>
       <Mdx code={post.body.code} />
       <div className="mt-4">

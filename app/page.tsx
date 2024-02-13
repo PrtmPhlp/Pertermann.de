@@ -3,7 +3,7 @@ import { cn } from '@/lib/className';
 import { getRelativeTimeString } from '@/lib/relativeDate';
 import ExternalLink from '@/ui/ExternalLink';
 import { pick } from 'contentlayer/client';
-import Image from "next/image";
+import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense } from 'react';
 
@@ -43,12 +43,13 @@ function Header() {
         <Image
           alt="Logo"
           className="rounded-full"
-          src="/static/images/profile.jpg"
           fill
           sizes="100vw"
+          src="/static/images/profile.jpg"
           style={{
-            objectFit: "contain"
-          }} />
+            objectFit: 'contain',
+          }}
+        />
         <div className="absolute -bottom-2 -right-2 rounded-full bg-white px-1 py-0.5 text-sm dark:bg-gray-900">
           ✨
         </div>
