@@ -1,7 +1,7 @@
 import ExternalLink from './ExternalLink';
 import Flashcard from './Flashcard';
 import { useMDXComponent } from 'next-contentlayer/hooks';
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from 'next/link';
 
 const CustomLink = (props: any) => {
@@ -24,7 +24,16 @@ const CustomLink = (props: any) => {
 };
 
 function RoundedImage(props: any) {
-  return <Image alt={props.alt} className="rounded-lg" {...props} />;
+  return (
+    <Image
+      alt={props.alt}
+      className="rounded-lg"
+      {...props}
+      style={{
+        maxWidth: "100%",
+        height: "auto"
+      }} />
+  );
 }
 
 const components = {
