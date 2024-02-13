@@ -3,7 +3,7 @@ import { cn } from '@/lib/className';
 import { getRelativeTimeString } from '@/lib/relativeDate';
 import ExternalLink from '@/ui/ExternalLink';
 import { pick } from 'contentlayer/client';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import Link from 'next/link';
 import { Suspense } from 'react';
 

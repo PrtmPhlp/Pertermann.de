@@ -1,7 +1,7 @@
 import ExternalLink from './ExternalLink';
 import Flashcard from './Flashcard';
 import { useMDXComponent } from 'next-contentlayer/hooks';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import Link from 'next/link';
 
 const CustomLink = (props: any) => {
