@@ -162,7 +162,7 @@ function Contact() {
           website="Surveillance"
         />
         <ContactLink
-          href="https://admin.pertermann.de"
+          href="https://uptime.pertermann.de"
           title="AdminPanel"
           website="Surveillance"
         />
