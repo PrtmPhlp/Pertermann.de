@@ -11,7 +11,7 @@ export default function Footer() {
       <FooterGraphic />
       <p className="flex flex-col gap-4">
         © 2022 - {new Date().getFullYear()} Pertermann. All Rights Reserved.
-        <a href="/">www.pertermann.de v.2024.02</a>
+        <a href="/">www.pertermann.de v.2024.04</a>
         <a href="https://github.com/PrtmPhlp/cretu.dev">
           Website built using components like Next.js & ThreeJS.
         </a>
