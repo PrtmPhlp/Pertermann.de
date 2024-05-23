@@ -147,7 +147,7 @@ function Contact() {
           website="X"
         />
         <ContactLink
-          href="https://www.instagram.com/PrtmPhlp"
+          href="https://www.instagram.com/philipp.prtm/"
           title="PrtmPhlp"
           website="Instagram"
         />
