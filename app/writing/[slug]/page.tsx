@@ -95,7 +95,18 @@ export default async function WritingPost({ params }: { params: any }) {
         />
       </div>
       <Mdx code={post.body.code} />
+
       <div className="mt-4">
+        <h4>Page not working as intended?</h4>
+        <p>
+          Status available at{' '}
+          <ExternalLink
+            className="text-sm"
+            href={'https://status.pertermann.de'}
+          >
+            status.pertermann.de
+          </ExternalLink>
+        </p>
         <ExternalLink className="text-sm" href={editUrl(post.slug)}>
           Edit source on GitHub
         </ExternalLink>
