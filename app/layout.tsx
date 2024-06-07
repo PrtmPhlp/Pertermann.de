@@ -4,6 +4,7 @@ import Providers from './providers';
 import { cn } from '@/lib/className';
 import AnimateEnter from '@/ui/AnimateEnter';
 import RollingMenu from '@/ui/RollingMenu';
+import 'katex/dist/katex.min.css';
 import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
