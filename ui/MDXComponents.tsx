@@ -3,8 +3,8 @@ import Flashcard from './Flashcard';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import Image from 'next/image';
 import Link from 'next/link';
-import AnimatedGradientBox from '../app/components/AnimatedGradientBox';
-import Card from '../app/components/card';
+import { Button } from "@/components/ui/button"
+
 
 const CustomLink = (props: any) => {
   const href = props.href;
@@ -43,8 +43,7 @@ const components = {
   Flashcard,
   Image: RoundedImage,
   a: CustomLink,
-  AnimatedGradientBox,
-  Card,
+  Button,
 };
 
 export function Mdx({ code }: { code: string }) {
