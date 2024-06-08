@@ -4,8 +4,10 @@ import { getRelativeTimeString } from '@/lib/relativeDate';
 import ExternalLink from '@/ui/ExternalLink';
 import { Mdx } from '@/ui/MDXComponents';
 import { Metadata } from 'next';
+import { getPlaiceholder } from "plaiceholder";
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import fs from "node:fs/promises";
 
 export async function generateStaticParams() {
   return allWritings.map((post) => ({
@@ -64,10 +66,13 @@ const editUrl = (slug: string) =>
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default async function WritingPost({ params }: { params: any }) {
   const post = allWritings.find((post) => post.slug === params.slug);
-
+  
   if (!post) {
     notFound();
   }
+
+  const buffer = await fs.readFile(`./public${post.image}`);
+  const { base64 } = await getPlaiceholder(buffer);
 
   return (
     <div className="text-secondary">
@@ -87,6 +92,9 @@ export default async function WritingPost({ params }: { params: any }) {
           alt={post.title}
           className="rounded-lg"
           fill
+          placeholder="blur"
+          blurDataURL={base64}
+          priority={true}
           sizes="100vw"
           src={post.image}
           style={{
