@@ -5,11 +5,11 @@ import {
 } from 'contentlayer/source-files';
 import readingTime from 'reading-time';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeKatex from 'rehype-katex';
 import rehypePrettyCode, { Options } from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
-import rehypeKatex from 'rehype-katex';
 
 const rehypePrettyCodeOptions: Partial<Options> = {
   onVisitHighlightedLine(node) {
