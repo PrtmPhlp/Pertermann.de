@@ -6,7 +6,6 @@ import { pick } from 'contentlayer/client';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense } from 'react';
-import { Button } from "@/components/ui/button"
 
 async function getData() {
   const posts = allWritings
@@ -27,7 +26,6 @@ async function getData() {
 export default function Home() {
   return (
     <div className="flex flex-col gap-16">
-      <Button>Click me</Button>
       <Header />
       <Contact />
       <AboutMe />
