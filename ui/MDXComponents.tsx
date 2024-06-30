@@ -1,10 +1,10 @@
+import AnimatedGradientBox from '../app/components/AnimatedGradientBox';
+import Card from '../app/components/card';
 import ExternalLink from './ExternalLink';
 import Flashcard from './Flashcard';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import Image from 'next/image';
 import Link from 'next/link';
-import AnimatedGradientBox from '../app/components/AnimatedGradientBox';
-import Card from '../app/components/card';
 
 const CustomLink = (props: any) => {
   const href = props.href;
@@ -32,19 +32,19 @@ function RoundedImage(props: any) {
       className="rounded-lg"
       {...props}
       style={{
-        maxWidth: '100%',
         height: 'auto',
+        maxWidth: '100%',
       }}
     />
   );
 }
 
 const components = {
+  AnimatedGradientBox,
+  Card,
   Flashcard,
   Image: RoundedImage,
   a: CustomLink,
-  AnimatedGradientBox,
-  Card,
 };
 
 export function Mdx({ code }: { code: string }) {

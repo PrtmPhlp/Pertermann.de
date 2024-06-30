@@ -1,4 +1,5 @@
-"use client"
+'use client';
+
 // app/components/AnimatedGradientBox.tsx
 import React, { useEffect, useRef } from 'react';
 
@@ -24,9 +25,9 @@ const AnimatedGradientBox: React.FC = () => {
     <div
       ref={boxRef}
       style={{
-        width: '100px',
-        height: '100px',
         borderRadius: '10px',
+        height: '100px',
+        width: '100px',
       }}
     />
   );

@@ -90,10 +90,10 @@ export default async function WritingPost({ params }: { params: any }) {
       <div className="relative mt-8 h-[400px]">
         <Image
           alt={post.title}
+          blurDataURL={base64}
           className="rounded-lg"
           fill
           placeholder="blur"
-          blurDataURL={base64}
           priority={true}
           sizes="100vw"
           src={post.image}
