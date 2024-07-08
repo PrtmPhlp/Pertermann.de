@@ -33,7 +33,7 @@ jobs:
       - name: Run Test
         run: bun run test
       - name: Build Website
-        run: bun run build-s
+        run: bun run build
       - name: Copy Files
         shell: bash
         env:
