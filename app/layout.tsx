@@ -6,21 +6,22 @@ import AnimateEnter from '@/ui/AnimateEnter';
 import RollingMenu from '@/ui/RollingMenu';
 import 'katex/dist/katex.min.css';
 import { Metadata } from 'next';
+import type { Viewport } from 'next';
 import { Inter } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export function generateViewport() {
-  return {
-    themeColor: '#4e4bec',
-  };
-}
+export const viewport: Viewport = {
+  initialScale: 1,
+  themeColor: '#4e4bec',
+  width: 'device-width',
+};
 
 export const metadata: Metadata = {
   authors: [{ name: 'Pertermann', url: 'https://pertermann.de' }],
   category: 'design',
   creator: 'Pertermann',
-  description: 'Design Engineer.',
+  description: 'Tinkerer.',
   icons: {
     apple: '/static/favicons/apple-touch-icon-180x180.png',
     icon: '/static/favicons/favicon-196x196.png',
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
   manifest: '/static/favicons/site.webmanifest',
   metadataBase: new URL('https://pertermann.de'),
   openGraph: {
-    description: 'The React Framework for the Web',
+    description: 'Tinkerer.',
     images: [
       {
         alt: 'Pertermann',
@@ -89,7 +90,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning translate="no">
+    <html lang="de" suppressHydrationWarning translate="no">
       <body
         className={cn(
           `${inter.className}`,
