@@ -1,3 +1,5 @@
+name: Delete old Packages
+
 on:
   schedule:
     - cron: "0 0 * * *"  # every day at midnight, utc
