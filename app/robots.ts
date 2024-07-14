@@ -3,6 +3,7 @@ export default function robots() {
     // host: 'https://pertermann.de',
     rules: [
       {
+        allow: '/',
         disallow: '',
         userAgent: '*',
       },
