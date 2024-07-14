@@ -18,4 +18,4 @@ jobs:
           image-tags: "!latest"
           cut-off: 10m
           keep-n-most-recent: 5
-          dry-run: true
+          dry-run: false
