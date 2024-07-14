@@ -48,4 +48,4 @@ jobs:
         env:
           SERVER_LOCATION: ${{ secrets.SERVER_DEPLOY_LOCATION }}
         run: |
-          cd $SERVER_DEPLOY_LOCATION && /usr/local/bin/pm2 restart cretu
+          cd $SERVER_DEPLOY_LOCATION && /usr/local/bin/pm2 restart cretu --update-env
