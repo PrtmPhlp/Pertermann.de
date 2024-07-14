@@ -3,8 +3,8 @@ export default function robots() {
     // host: 'https://pertermann.de',
     rules: [
       {
-        userAgent: '*',
         disallow: '',
+        userAgent: '*',
       },
     ],
     sitemap: 'https://pertermann.de/sitemap.xml',
