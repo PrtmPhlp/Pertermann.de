@@ -38,6 +38,13 @@ jobs:
         run: bun run test
       - name: Build Website
         run: bun run build
+  deploy:
+    runs-on: self-hosted
+    environment: Master
+    env:
+      HOME: ${{ secrets.SERVER_HOME }}
+      uses: actions/checkout@v4
+    steps:
       - name: Copy Files
         shell: bash
         env:
