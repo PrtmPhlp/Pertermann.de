@@ -1,17 +1,19 @@
-name: Remove package versions
 on:
   schedule:
-    - cron:  '0 8 * * *'
+    - cron: "0 0 * * *"  # every day at midnight, utc
   workflow_dispatch:
+
 jobs:
-  remove-package-versions:
+  clean:
     runs-on: ubuntu-latest
+    name: Delete old test images
     steps:
-      - uses: actions/delete-package-versions@v5
-        with: 
-          owner: 'github'
-          package-name: 'test-package'
-          package-type: 'npm'
+      - uses: snok/container-retention-policy@v3.0.0
+        with:
+          account: PrtmPhlp
           token: ${{ secrets.GITHUB_TOKEN }}
-          min-versions-to-keep: 3
-          ignore-versions: '^(0|[1-9]\\d*)\\.0\\.0$'
+          image-names: "cretu.dev"
+          image-tags: "!latest"
+          cut-off: 1h
+          keep-n-most-recent: 5
+          dry-run: true
