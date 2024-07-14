@@ -11,7 +11,7 @@ jobs:
       - uses: snok/container-retention-policy@v3.0.0
         with:
           account: PrtmPhlp
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.TOKEN }}
           image-names: "cretu.dev"
           image-tags: "!latest"
           cut-off: 1h
