@@ -1,0 +1,12 @@
+services:
+  cretu.dev:
+    container_name: webpage
+    #ports:
+    #  - 3000:3000
+    image: ghcr.io/prtmphlp/cretu.dev:latest
+
+networks:
+  default:
+    external: true
+    name: proxy
+
