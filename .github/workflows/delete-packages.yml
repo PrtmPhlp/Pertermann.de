@@ -2,7 +2,7 @@ name: Delete old Packages
 
 on:
   schedule:
-    - cron: "0 0 * * *"  # every day at midnight, utc
+    - cron: '0 0 * * *' # every day at midnight, utc
   workflow_dispatch:
 
 jobs:
@@ -14,8 +14,8 @@ jobs:
         with:
           account: user
           token: ${{ secrets.TOKEN }}
-          image-names: "cretu.dev"
-          image-tags: "!latest"
+          image-names: 'cretu.dev'
+          image-tags: '!latest'
           cut-off: 10m
           keep-n-most-recent: 5
           dry-run: false
