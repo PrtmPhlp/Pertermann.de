@@ -59,3 +59,16 @@ jobs:
           subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
+  reload-server:
+    needs: build-and-push-image
+    runs-on: ubuntu-latest
+    steps:
+      - name: redeploy docker container using remote ssh
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            docker compose -f "${{ secrets.COMPOSE_LOCATION }}" pull && docker compose -f "${{ secrets.COMPOSE_LOCATION }}" up -d --remove-orphans
