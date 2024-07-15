@@ -5,6 +5,8 @@ import ExternalLink from '@/ui/ExternalLink';
 import { pick } from 'contentlayer/client';
 import Image from 'next/image';
 import Link from 'next/link';
+import fs from 'node:fs/promises';
+import { getPlaiceholder } from 'plaiceholder';
 import { Suspense } from 'react';
 
 async function getData() {
@@ -36,14 +38,20 @@ export default function Home() {
   );
 }
 
-function Header() {
+async function Header() {
+  const buffer = await fs.readFile(`./public/static/images/profile.jpg`);
+  const { base64 } = await getPlaiceholder(buffer);
+
   return (
     <div className="flex flex-row items-center gap-4">
       <div className="relative h-12 w-12">
         <Image
           alt="Logo"
+          blurDataURL={base64}
           className="rounded-full"
           fill
+          placeholder="blur"
+          priority={true}
           sizes="100vw"
           src="/static/images/profile.jpg"
           style={{
