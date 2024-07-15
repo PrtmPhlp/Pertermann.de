@@ -78,4 +78,4 @@ jobs:
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            docker compose -f "${{ secrets.COMPOSE_LOCATION }}" pull && docker compose -f "${{ secrets.COMPOSE_LOCATION }}" up -d --remove-orphans
+            docker compose -f "${{ secrets.COMPOSE_LOCATION }}/compose.yaml" pull && docker compose -f "${{ secrets.COMPOSE_LOCATION }}" up -d --remove-orphans
