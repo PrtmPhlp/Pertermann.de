@@ -16,6 +16,6 @@ jobs:
           token: ${{ secrets.TOKEN }}
           image-names: 'cretu.dev'
           image-tags: '!latest'
-          cut-off: 10m
+          cut-off: 2m
           keep-n-most-recent: 5
           dry-run: false
