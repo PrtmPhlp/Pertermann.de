@@ -1,4 +1,5 @@
 const { withContentlayer } = require('next-contentlayer');
+const { withPlausibleProxy } = require('next-plausible');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -7,4 +8,20 @@ const nextConfig = {
   // other configurations can be added here
 };
 
-module.exports = withContentlayer(nextConfig);
+// Apply the withContentlayer and withPlausibleProxy wrappers
+// module.exports = withPlausibleProxy()(withContentlayer(nextConfig));
+module.exports = {
+  async rewrites() {
+    return [
+      {
+        destination: 'https://plausible.pertermann.de/js/script.js',
+        source: '/js/script.js',
+      },
+      {
+        // Or '/api/event/' if you have `trailingSlash: true` in this config
+destination: 'https://plausible.pertermann.de/api/event', 
+        source: '/api/event',
+      },
+    ];
+  },
+};

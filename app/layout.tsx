@@ -7,6 +7,7 @@ import RollingMenu from '@/ui/RollingMenu';
 import 'katex/dist/katex.min.css';
 import { Metadata } from 'next';
 import type { Viewport } from 'next';
+import PlausibleProvider from 'next-plausible';
 import { Inter } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -91,6 +92,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de" suppressHydrationWarning translate="no">
+      <head>
+        <PlausibleProvider
+          customDomain="https://plausible.pertermann.de"
+          domain="pertermann.de"
+          enabled={true}
+          selfHosted={true}
+          trackLocalhost={true}
+        />
+      </head>
       <body
         className={cn(
           `${inter.className}`,
