@@ -97,8 +97,8 @@ export default function RootLayout({
           customDomain="https://plausible.pertermann.de"
           domain="pertermann.de"
           enabled={true}
-          trackFileDownloads={true}
           selfHosted={true}
+          trackFileDownloads={true}
           // trackLocalhost={true}
           trackOutboundLinks={true}
         />
