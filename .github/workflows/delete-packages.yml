@@ -1,4 +1,4 @@
-name: Delete old Packages
+name: Delete old Packages and Caches
 
 on:
   schedule:
@@ -8,7 +8,7 @@ on:
 jobs:
   clean:
     runs-on: ubuntu-latest
-    name: Delete old test images
+    name: Delete old packages and caches
     steps:
       - uses: snok/container-retention-policy@v3.0.0
         with:
@@ -19,3 +19,9 @@ jobs:
           cut-off: 2m
           keep-n-most-recent: 5
           dry-run: false
+      # Do other steps like checkout, install, compile, etc.
+      - uses: MyAlbum/purge-cache@v2
+        with:
+          accessed: true # Purge caches by their last accessed time (default)
+          created: false # Purge caches by their created time (default)
+          max-age: 604800 # Leave only caches accessed in the last 7 days (default)
