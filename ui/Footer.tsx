@@ -31,7 +31,7 @@ export default function Footer() {
           </a>{' '}
           (
           <a
-            href="https://github.com/PrtmPhlp/cretu.dev"
+            href="https://github.com/PrtmPhlp/pertermann.de"
             rel="noopener noreferrer"
             target="_blank"
           >
