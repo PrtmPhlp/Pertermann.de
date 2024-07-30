@@ -1,4 +1,4 @@
-## cretu.dev files used for [Pertermann.de](https://pertermann.de)
+## [Pertermann.de](https://pertermann.de)
 
 [![Next.js Deploy](https://github.com/PrtmPhlp/cretu.dev/actions/workflows/deploy.js.yml/badge.svg)](https://github.com/PrtmPhlp/cretu.dev/actions/workflows/deploy.js.yml)
 [![Build and Push Docker image](https://github.com/PrtmPhlp/cretu.dev/actions/workflows/docker-deploy.yml/badge.svg)](https://github.com/PrtmPhlp/cretu.dev/actions/workflows/docker-deploy.yml)
@@ -6,4 +6,4 @@
 
 Minimal design, quirky interactions 💫.
 
-![Pertermann.de Website](https://github.com/PrtmPhlp/cretu.dev/assets/95431082/682cdcbe-6b43-4900-8189-2c060c20bbf5)
+![Pertermann.de Website](https://github.com/user-attachments/assets/c2d6e923-9c97-4809-9f02-4b3624442ee0)
