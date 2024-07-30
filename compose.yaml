@@ -1,9 +1,9 @@
 services:
-  cretu.dev:
+  pertermann.de:
     container_name: webpage
-    #ports:
+    # ports:
     #  - 3000:3000
-    image: ghcr.io/prtmphlp/cretu.dev:latest
+    image: ghcr.io/prtmphlp/pertermann:latest
 
 networks:
   default:
