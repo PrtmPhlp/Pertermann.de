@@ -1,4 +1,3 @@
-#
 name: Build and Push Docker image
 
 # Configures this workflow to run every time a change is pushed to the branch called `release`.
@@ -54,7 +53,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           context: .
-          # platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64,linux/arm64
           push: true
           provenance: false
           tags: ${{ steps.meta.outputs.tags }}
@@ -67,6 +66,7 @@ jobs:
           subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
+
   reload-server:
     needs: build-and-push-image
     runs-on: ubuntu-latest
