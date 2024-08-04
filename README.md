@@ -10,8 +10,8 @@ Minimal design, quirky interactions 💫.
 
 ## Credits
 
-This project includes code from [cretu.dev](https://github.com/cristicretu/cretu.dev), which is licensed under the MIT License. 
+This project includes code from [cretu.dev](https://github.com/cristicretu/cretu.dev), which is licensed under the MIT License.
 
 **Original Author:** Cristian Crețu
 
-The MIT License is included in the `LICENSE` file in this repository. 
+The MIT License is included in the `LICENSE` file in this repository.
