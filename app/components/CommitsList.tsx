@@ -1,8 +1,7 @@
-"use client"; // <-- Ensure this line is at the top
+'use client';
 
 import ExternalLink from '@/ui/ExternalLink';
 import { useEffect, useState } from 'react';
-import styles from './CommitsList.module.css';
 
 interface GitHubCommit {
     commit: {
@@ -19,7 +18,9 @@ const CommitsList: React.FC = () => {
         const fetchCommits = async () => {
             try {
                 // Fetch the commits data
-                const response = await fetch('https://api.github.com/repos/PrtmPhlp/DSBMobile/commits');
+                const response = await fetch(
+                    'https://api.github.com/repos/PrtmPhlp/DSBMobile/commits',
+                );
                 const data: GitHubCommit[] = await response.json();
 
                 // Extract commit messages
@@ -27,7 +28,9 @@ const CommitsList: React.FC = () => {
                 setCommitMessages(messages);
 
                 // Fetch the total number of commits
-                const responseTotal = await fetch('https://api.github.com/repos/PrtmPhlp/DSBMobile/commits?per_page=1');
+                const responseTotal = await fetch(
+                    'https://api.github.com/repos/PrtmPhlp/DSBMobile/commits?per_page=1',
+                );
                 const linkHeader = responseTotal.headers.get('link');
 
                 if (linkHeader) {
@@ -47,20 +50,28 @@ const CommitsList: React.FC = () => {
         fetchCommits();
     }, []);
 
-    if (loading) return <h1>Loading commits...</h1>;
+    if (loading) return <h1 className="text-primary">Loading commits...</h1>;
 
     return (
         <div>
-            <h3>Aktuelle Commits:</h3>
-            <div className={styles['fade-out-list']}>
+            <h3 className="text-primary text-xl font-semibold">Aktuelle Commits:</h3>
+            <div className="relative overflow-hidden p-4">
                 <ol reversed={!!totalCommits} start={totalCommits || 1}>
                     {commitMessages.slice(0, 5).map((message, index) => (
                         <li key={index}>{message}</li>
                     ))}
                 </ol>
+                {/* Gradient overlay with Tailwind CSS for light and dark mode */}
+                <div
+                    className="pointer-events-none absolute bottom-0 left-0 right-0 bg-gradient-to-b from-transparent to-white dark:to-gray-900"
+                    style={{ height: '200px' }} // Ensure gradient height is 250px
+                />
             </div>
-            <div style={{ display: "block", textAlign: "center" }}>
-                <ExternalLink arrow={true} href="https://github.com/PrtmPhlp/DSBMobile/commits/master/">
+            <div className="mt-4 block text-center">
+                <ExternalLink
+                    arrow={true}
+                    href="https://github.com/PrtmPhlp/DSBMobile/commits/master/"
+                >
                     Alle ansehen
                 </ExternalLink>
             </div>
