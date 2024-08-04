@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import fs from 'node:fs/promises';
 import { getPlaiceholder } from 'plaiceholder';
+import CommitSection from '@/app/writing/CommitSection'; // Updated import
 
 export async function generateStaticParams() {
   return allWritings.map((post) => ({
@@ -105,6 +106,7 @@ export default async function WritingPost({ params }: { params: any }) {
         </div>
       )}
       <Mdx code={post.body.code} />
+      <CommitSection slug={post.slug} /> {/* Use the wrapper component */}
 
       <div className="mt-4">
         <h4>Page not working as intended?</h4>
