@@ -1,0 +1,20 @@
+/* Improved fade-out effect for the entire list */
+.fade-out-list {
+    position: relative;
+    overflow: hidden;
+    padding-left: 2em;
+    /* Ensure enough space for the list numbers */
+}
+
+.fade-out-list::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    /* Increase the height for a smoother fade */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    pointer-events: none;
+    /* Allows interaction with underlying content */
+}
