@@ -23,10 +23,10 @@ const CommitsList: React.FC = () => {
                 );
                 const data: GitHubCommit[] = await response.json();
 
-                // Extract commit messages and limit them to 100 characters
+                // Extract commit messages and limit them to 130 characters
                 const messages = data.map((commit) => {
                     const message = commit.commit.message;
-                    return message.length > 100 ? `${message.slice(0, 100)} [...]` : message;
+                    return message.length > 130 ? `${message.slice(0, 130)} [...]` : message;
                 });
                 setCommitMessages(messages);
 
