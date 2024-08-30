@@ -2,7 +2,7 @@ name: Delete old Packages and Caches
 
 on:
   schedule:
-    - cron: '0 0 * * *' # every day at midnight, utc
+    - cron: '0 0 */3 * *' # every day at midnight, utc
   workflow_dispatch:
 
 jobs:
