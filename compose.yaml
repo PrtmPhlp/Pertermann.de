@@ -1,9 +1,11 @@
 services:
   pertermann.de:
     container_name: webpage
+    image: ghcr.io/prtmphlp/pertermann:latest
+    build:
+      dockerfile: ./Dockerfile
     # ports:
     #  - 3000:3000
-    image: ghcr.io/prtmphlp/pertermann:latest
 
 networks:
   default:
