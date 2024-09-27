@@ -7,7 +7,14 @@ services:
     # ports:
     #  - 3000:3000
 
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.uptime.rule=Host(`uptime.pertermann.de`)'
+      - 'traefik.http.routers.uptime.entrypoints=https'
+      - 'traefik.http.routers.uptime.tls=true'
+      - 'traefik.http.routers.uptime.middlewares=authelia@docker'
+    networks:
+      - proxy
 networks:
-  default:
+  proxy:
     external: true
-    name: proxy
