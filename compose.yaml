@@ -1,7 +1,7 @@
 services:
   pertermann.de:
     container_name: webpage
-    image: ghcr.io/prtmphlp/pertermann:latest
+    image: ghcr.io/prtmphlp/pertermann.de:latest
     build:
       dockerfile: ./Dockerfile
     # ports:
@@ -15,6 +15,7 @@ services:
       - 'traefik.http.routers.uptime.middlewares=authelia@docker'
     networks:
       - proxy
+
 networks:
   proxy:
     external: true
