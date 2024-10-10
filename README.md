@@ -8,10 +8,8 @@ Minimal design, quirky interactions 💫.
 
 ![Pertermann.de Website](https://github.com/user-attachments/assets/c2d6e923-9c97-4809-9f02-4b3624442ee0)
 
-## Credits
+## Acknowledgement
 
-This project includes code from [cretu.dev](https://github.com/cristicretu/cretu.dev), which is licensed under the MIT License.
-
-**Original Author:** Cristian Crețu
+This project includes code from Cristian Crețu which is licensed under the MIT License.
 
 The MIT License is included in the `LICENSE` file in this repository.
