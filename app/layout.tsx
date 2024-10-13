@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   creator: 'Pertermann',
   description: 'Tinkerer.',
   icons: {
-    apple: '/static/favicons/apple-touch-icon-180x180.png',
+    apple: '/static/favicons/apple-touch-icon.png',
     icon: '/static/favicons/favicon-196x196.png',
     shortcut: '/favicon.ico',
   },
