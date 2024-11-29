@@ -26,7 +26,7 @@ const rehypePrettyCodeOptions: Partial<Options> = {
     }
     node.properties.className.push('syntax-line');
   },
-  theme: 'poimandres',
+  theme: 'one-dark-pro',
   tokensMap: {
     fn: 'entity.name.function',
     objKey: 'meta.object-literal.key',
