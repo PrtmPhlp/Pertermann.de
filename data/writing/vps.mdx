@@ -1,0 +1,49 @@
+---
+title: 'VPS Comparison: Hetzner vs. DigitalOcean'
+publishedAt: '2025-01-15'
+summary: 'Virtual private server performance comparison between Hetzner Intel and ARM VMs and Digitalocean Droplets'
+image: '/static/images/dsb/banner.png'
+---
+
+When choosing a VPS for your cloud projects, performance and cost-effectiveness are key considerations. The VPS which hosted this for about a year ran on a 
+2 GB 1 vCPU DigitalOcean Droplet. In December i decided to give Hetzner a try and I’m impressed by the results which are reflected by both an increase in performance but also a 3x price decrease
+
+These are the results for all VPS options using Geekbench benchmarks
+
+1. **DigitalOcean (1 CPU Core, 2GB RAM)**
+    - Cost: **15€**/month
+    - Single-core score: **911**
+    - Multi-core score: **915**
+
+2. **Hetzner CX22 Intel (2 CPU Cores, 4GB RAM)**
+    - Cost: **4,50€**/month (3,92€ + 0,60€ IPv4)
+    - Single-core score: **733**
+    - Multi-core score: **1276**
+
+3. **Hetzner CAX11 Ampere (2 CPU Cores, 4GB RAM)**
+    - Cost: **4,50€**/month (3,92€ + 0,60€ IPv4)
+    - Single-core score: **1045**
+    - Multi-core score: **1893**
+
+---
+
+## Cost vs. Performance
+
+| Provider               | Cost (€/month)   | Single-Core Score | Multi-Core Score | Performance per Euro (Single-Core) | Performance per Euro (Multi-Core) |
+|------------------------|------------------|-------------------|------------------|------------------------------------|-----------------------------------|
+| DigitalOcean           | 15               | 911               | 915              | 60.7                               | 61                                |
+| Hetzner CX22 Intel     | 4.5              | 733               | 1276             | 162.9                              | 283.6                             |
+| Hetzner CAX11 Ampere   | 4.5              | 1045              | 1893             | 232.2                              | 420.7                             |
+
+
+- **Hetzner CAX11 Ampere** provides the best overall value, delivering the highest single-core and multi-core performance at just 4,50€/month.
+- **Hetzner CX22 Intel** is also a great value and probably more practical for legacy x86 tasks 
+- **DigitalOcean**, while decent in single-core performance, is hard to justify at three times the cost of Hetzner's offerings.
+
+---
+
+## Conclusion
+
+For those prioritizing raw performance per euro, Hetzner's VPSs clearly outshine DigitalOcean Droplets. The CAX11 Ampere and CX22 Intel offer great value for general workloads.
+
+While I had a good experience with DigitalOcean, its pricing and performance are a pretty bad deal compared to services like those Hetzner provides. I’m currently running this site on the CX22 mainly because of some x86-only binaries but am considering switching to the ARM option.
