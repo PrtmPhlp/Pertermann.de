@@ -4,6 +4,7 @@ import ExternalLink from '@/ui/ExternalLink';
 import { OrbitControls } from '@react-three/drei';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
+import { IcosahedronGeometry, Vector3 } from 'three';
 
 export default function Footer() {
   return (
@@ -56,11 +57,27 @@ function PixelatedSphere() {
     }
   });
 
+  const vertices: [number, number, number][] = [];
+  const tempGeo = new IcosahedronGeometry(1, 4);
+  const positionAttribute = tempGeo.attributes.position;
+
+  for (let i = 0; i < positionAttribute.count; i++) {
+    vertices.push([
+      positionAttribute.getX(i),
+      positionAttribute.getY(i),
+      positionAttribute.getZ(i),
+    ]);
+  }
+
   return (
-    <points ref={sphereRef as any}>
-      <icosahedronGeometry args={[1, 4]} />
-      <pointsMaterial color="gray" size={0.05} />
-    </points>
+    <group ref={sphereRef as any}>
+      {vertices.map((pos, i) => (
+        <mesh key={i} position={pos}>
+          <sphereGeometry args={[0.01, 8, 8]} />
+          <meshBasicMaterial color="gray" />
+        </mesh>
+      ))}
+    </group>
   );
 }
 
@@ -87,10 +104,10 @@ function Birds() {
   });
 
   const birds = [...Array(48)].map((_, i) => {
-    const size = i % 2 === 0 ? 0.03 : 0.05;
+    const size = i % 2 === 0 ? 0.015 : 0.025;
     return (
       <mesh key={i} position={[1, 0, 0]}>
-        <planeGeometry args={[size, size]} />
+        <sphereGeometry args={[size, 8, 8]} />
         <meshBasicMaterial color="gray" />
       </mesh>
     );
@@ -104,7 +121,7 @@ function FooterGraphic() {
     <Canvas camera={{ fov: 40, position: [0, 0, 5] }} gl={{ antialias: false }}>
       <PixelatedSphere />
       <Birds />
-      <OrbitControls enableZoom={false} />
+      <OrbitControls enableZoom={true} />
     </Canvas>
   );
 }
