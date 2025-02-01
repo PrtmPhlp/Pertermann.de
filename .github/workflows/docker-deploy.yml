@@ -72,16 +72,16 @@ jobs:
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
 
-  # deploy:
-  #   needs: build-and-push-image
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: redeploy docker container using remote ssh
-  #       uses: appleboy/ssh-action@v1.0.3
-  #       with:
-  #         host: ${{ secrets.HOST }}
-  #         username: ${{ secrets.USERNAME }}
-  #         key: ${{ secrets.KEY }}
-  #         port: ${{ secrets.PORT }}
-  #         script: |
-  #           docker compose -f "${{ secrets.COMPOSE_LOCATION }}/compose.yaml" pull && docker compose -f "${{ secrets.COMPOSE_LOCATION }}/compose.yaml" up -d --remove-orphans
+  deploy:
+    needs: build-and-push-image
+    runs-on: ubuntu-latest
+    steps:
+      - name: redeploy docker container using remote ssh
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            docker compose -f "${{ secrets.COMPOSE_LOCATION }}/compose.yaml" pull && docker compose -f "${{ secrets.COMPOSE_LOCATION }}/compose.yaml" up -d --remove-orphans
