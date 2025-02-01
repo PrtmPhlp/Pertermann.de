@@ -30,7 +30,7 @@ ENV NEXT_TELEMETRY_DISABLED=1
 RUN addgroup --system --gid 1001 nodejs && \
   adduser --system --uid 1001 nextjs
 
-COPY --from=builder /app/public ./public
+COPY --from=builder /app/public ./publicimp
 
 # Set the correct permission for prerender cache
 RUN mkdir .next && chown nextjs:nodejs .next
@@ -46,4 +46,4 @@ EXPOSE 3000
 ENV PORT=3000
 
 # server.js is created by next build from the standalone output
-CMD HOSTNAME="0.0.0.0" bun server.js
+CMD ["bun", "server.js"]
