@@ -1,4 +1,4 @@
-import { promises as fs } from 'node:fs';
+// import { promises as fs } from 'node:fs';
 
 export async function GET() {
   // const file = await fs.readFile(
