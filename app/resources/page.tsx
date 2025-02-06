@@ -11,9 +11,7 @@ export default async function Resources() {
     <div className="mx-auto max-w-2xl space-y-16">
       <h1>Resources</h1>
       <p className="text-secondary">
-        A curated collection of captivating articles, thought-provoking essays,
-        and enlightening videos to broaden and elevate your intellectual
-        horizons.
+        A curated collection of captivating articles. tbc
       </p>
       <div className="flex flex-col space-y-2">
         {resources.map((resource) => (
