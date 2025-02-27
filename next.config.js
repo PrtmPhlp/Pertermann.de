@@ -4,7 +4,9 @@ const { withContentlayer } = require('next-contentlayer');
 const nextConfig = {
   output: 'standalone',
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
+  transpilePackages: ['troika-three-text'],
   // other configurations can be added here
 };
 
 module.exports = withContentlayer(nextConfig);
+
