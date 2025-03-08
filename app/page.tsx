@@ -170,9 +170,9 @@ function Contact() {
           website="Surveillance"
         />
         <ContactLink
-          href="https://uptime.pertermann.de"
-          title="AdminPanel"
-          website="Surveillance"
+          href="https://status.pertermann.de"
+          title="old website"
+          website="Legacy"
         />
         {/* <ContactLink href="about:blank" title="placeholder" website="--" /> */}
       </div>
