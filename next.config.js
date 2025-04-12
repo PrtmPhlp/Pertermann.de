@@ -4,7 +4,20 @@ const { withContentlayer } = require('next-contentlayer');
 const nextConfig = {
   output: 'standalone',
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
-  // other configurations can be added here
+  transpilePackages: ['troika-three-text'],
+  webpack: (config, { isServer }) => {
+    config.module.rules.push({
+      test: /troika-three-text\.esm\.js$/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['next/babel'],
+        },
+      },
+    });
+    return config;
+  },
 };
 
 module.exports = withContentlayer(nextConfig);
+
