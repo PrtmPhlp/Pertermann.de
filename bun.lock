@@ -26,7 +26,7 @@
         "rehype-katex": "6.0.0",
         "remark-math": "5.0.0",
         "sharp": "^0.33.4",
-        "three": "^0.154.0",
+        "three": "0.166.0",
       },
       "devDependencies": {
         "@tailwindcss/typography": "^0.5.13",
@@ -1573,7 +1573,7 @@
 
     "thenify-all": ["thenify-all@1.6.0", "", { "dependencies": { "thenify": ">= 3.1.0 < 4" } }, "sha512-RNxQH/qI8/t3thXJDwcstUO4zeqo64+Uy/+sNVRBx4Xn2OX+OZ9oP+iJnNFqplFra2ZUVeKCSa2oVWi3T4uVmA=="],
 
-    "three": ["three@0.154.0", "", {}, "sha512-Uzz8C/5GesJzv8i+Y2prEMYUwodwZySPcNhuJUdsVMH2Yn4Nm8qlbQe6qRN5fOhg55XB0WiLfTPBxVHxpE60ug=="],
+    "three": ["three@0.166.0", "", {}, "sha512-3Gw7oyZ/vCmz3RmNx1xuyNu7Ou/igDtoh953QsJh/QkAoi6B7jpkKwk05N8Y7/9bZeIE44zdC+i2KZNF+KWQ8A=="],
 
     "three-mesh-bvh": ["three-mesh-bvh@0.7.8", "", { "peerDependencies": { "three": ">= 0.151.0" } }, "sha512-BGEZTOIC14U0XIRw3tO4jY7IjP7n7v24nv9JXS1CyeVRWOCkcOMhRnmENUjuV39gktAw4Ofhr0OvIAiTspQrrw=="],
 

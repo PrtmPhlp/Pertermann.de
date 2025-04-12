@@ -170,7 +170,7 @@ function Contact() {
           website="Surveillance"
         />
         <ContactLink
-          href="https://status.pertermann.de"
+          href="https://legacy.pertermann.de"
           title="old website"
           website="Legacy"
         />
