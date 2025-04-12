@@ -5,4 +5,4 @@ Encryption: https://pertermann.de/pgp-key.txt
 
 Preferred-Languages: en, de
 
-Expires: 2024-12-31T23:59:59.000Z
+Expires: 2026-12-31T23:59:59.000Z
