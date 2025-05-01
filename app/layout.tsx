@@ -19,6 +19,11 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  alternates: {
+    types: {
+      'application/rss+xml': '/feed.xml',
+    },
+  },
   authors: [{ name: 'Pertermann', url: 'https://pertermann.de' }],
   category: 'design',
   creator: 'Pertermann',
