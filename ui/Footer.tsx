@@ -17,31 +17,14 @@ export default function Footer() {
           {(new Date().getMonth() + 1).toString().padStart(2, '0')}
         </span>
         <span>
-          Website built using{' '}
-          <a
-            href="https://nextjs.org/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Next.js
-          </a>{' '}
-          &{' '}
-          <a
-            href="https://tailwindcss.com/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            TailwindCSS
-          </a>{' '}
-          (
+          This website is open source on{' '}
           <a
             href="https://github.com/PrtmPhlp/pertermann.de"
             rel="noopener noreferrer"
             target="_blank"
           >
-            view source
+            GitHub :)
           </a>
-          ).
         </span>
       </p>
     </footer>
