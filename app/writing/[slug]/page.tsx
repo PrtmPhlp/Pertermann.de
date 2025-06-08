@@ -107,21 +107,13 @@ export default async function WritingPost({ params }: { params: any }) {
       )}
       <Mdx code={post.body.code} />
       <CommitSection slug={post.slug} /> {/* Use the wrapper component */}
-      <div className="mt-4">
-        <h4 className="text-secondary">Page not working as intended?</h4>
+      <div className="mt-8 text-sm">
         <p>
-          Status available at{' '}
-          <ExternalLink
-            className="text-sm"
-            href={'https://status.pertermann.de'}
-          >
-            status.pertermann.de
-          </ExternalLink>
-        </p>
-        <ExternalLink className="text-sm" href={editUrl(post.slug)}>
-          Edit source on GitHub
-        </ExternalLink>
-      </div>
+            <ExternalLink arrow={false} href={editUrl(post.slug)}>edit source on GitHub</ExternalLink>
+            {' • '}
+            <ExternalLink arrow={false} href="https://status.pertermann.de">status.pertermann.de</ExternalLink>
+          </p>
+          </div>
     </div>
   );
 }
