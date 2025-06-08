@@ -1,10 +1,9 @@
 'use client';
 
-import ExternalLink from '@/ui/ExternalLink';
 import { OrbitControls } from '@react-three/drei';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
-import { IcosahedronGeometry, Vector3 } from 'three';
+import { IcosahedronGeometry } from 'three';
 
 export default function Footer() {
   return (
