@@ -1,5 +1,5 @@
 # Security policy for pertermann.de
-Contact: mailto:security@pertermann.de
+Contact: mailto:admin@pertermann.de
 
 Encryption: https://pertermann.de/pgp-key.txt
 
