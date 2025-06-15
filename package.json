@@ -27,7 +27,7 @@
     "caniuse-lite": "^1.0.30001718",
     "contentlayer": "^0.3.4",
     "date-fns": "^2.30.0",
-    "esbuild": "^0.25.4",
+    "esbuild": "^0.25.0",
     "framer-motion": "^10.18.0",
     "katex": "^0.16.22",
     "lodash": "^4.17.21",
