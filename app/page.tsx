@@ -97,11 +97,13 @@ function ContactLink({
   title,
   website,
   email,
+  target = "_blank",
 }: {
   email?: string;
   href?: string;
   title: string;
   website?: string;
+  target?: string;
 }) {
   return (
     <span className="block items-center gap-4">
@@ -111,7 +113,7 @@ function ContactLink({
           className="text-secondary hover:text-primary transition-opacity duration-150"
           href={href}
           rel="noopener noreferrer"
-          target="_blank"
+          target={target}
         >
           {title}{' '}
           <svg
@@ -150,14 +152,10 @@ function Contact() {
           website="GitHub"
         />
         <ContactLink
-          href="https://X.com/PrtmPhlp"
-          title="@prtmphlp"
-          website="X"
-        />
-        <ContactLink
-          href="https://www.instagram.com/philipp.prtm/"
-          title="PrtmPhlp"
-          website="Instagram"
+          href="/publications"
+          title="View all"
+          website="Publications"
+          target="_self"
         />
         <ContactLink
           href="mailto:contact@pertermann.de"
@@ -165,14 +163,19 @@ function Contact() {
           website="Email"
         />
         <ContactLink
-          href="https://status.pertermann.de"
-          title="Systemstatus"
-          website="Surveillance"
-        />
-        <ContactLink
           href="https://legacy.pertermann.de"
           title="old website"
           website="Legacy"
+        />
+        <ContactLink
+          href="/feed.xml"
+          title="Subscribe"
+          website="RSS Feed"
+        />
+        <ContactLink
+          href="https://status.pertermann.de"
+          title="Systemstatus"
+          website="Surveillance"
         />
         {/* <ContactLink href="about:blank" title="placeholder" website="--" /> */}
       </div>

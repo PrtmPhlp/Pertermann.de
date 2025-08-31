@@ -10,6 +10,7 @@ import {
   PlusIcon,
   ComputerDesktopIcon,
   SunIcon,
+  DocumentTextIcon,
 } from '@heroicons/react/24/solid';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from 'next-themes';
@@ -157,8 +158,8 @@ export default function RollingMenu() {
                     action.section === 'Navigation'
                       ? Link
                       : action.section === 'Socials'
-                      ? 'a'
-                      : 'button'
+                        ? 'a'
+                        : 'button'
                   }
                   className={cn(
                     'flex h-10 w-10 cursor-pointer select-none flex-col items-center space-y-1 p-3 transition-all duration-200',
@@ -187,6 +188,11 @@ export default function RollingMenu() {
                   )}
                   {action.keywords === 'writing' && (
                     <PencilIcon
+                      className={`h-6 w-6 text-[${action.iconColor}]`}
+                    />
+                  )}
+                  {action.keywords === 'publications' && (
+                    <DocumentTextIcon
                       className={`h-6 w-6 text-[${action.iconColor}]`}
                     />
                   )}

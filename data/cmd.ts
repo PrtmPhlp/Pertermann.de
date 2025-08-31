@@ -29,6 +29,14 @@ export const actions: Action[] = [
     iconColor: "#673D13",
   },
   {
+    name: "Publications",
+    keywords: "publications",
+    href: "/publications",
+    section: "Navigation",
+    color: "#61C167",
+    iconColor: "#0D2805",
+  },
+  {
     name: "GitHub",
     keywords: "github",
     href: "https://github.com/PrtmPhlp",
@@ -79,6 +87,12 @@ export const Navigation: Action[] = [
     name: "Writing",
     keywords: "writing",
     href: "/writing",
+    section: "Navigation",
+  },
+  {
+    name: "Publications",
+    keywords: "publications",
+    href: "/publications",
     section: "Navigation",
   },
 ];
