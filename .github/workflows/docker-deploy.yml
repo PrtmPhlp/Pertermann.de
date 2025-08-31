@@ -86,11 +86,11 @@ jobs:
     needs: build-and-push-image
     runs-on: ubuntu-latest
     steps:
-      - name: redeploy docker container using remote ssh
-        uses: appleboy/ssh-action@v1.0.3
+      - name: Execute remote SSH commands using password
+        uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
+          username: hetzner
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: |
