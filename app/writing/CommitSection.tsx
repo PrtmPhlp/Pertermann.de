@@ -6,7 +6,7 @@ interface CommitSectionProps {
 }
 
 const CommitSection: React.FC<CommitSectionProps> = ({ slug }) => {
-  if (slug !== 'dsb') {
+  if (slug !== 'dsb' && slug !== 'dsb-publication') {
     return null;
   }
   return <CommitsList />;

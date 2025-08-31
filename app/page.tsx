@@ -101,9 +101,9 @@ function ContactLink({
 }: {
   email?: string;
   href?: string;
+  target?: string;
   title: string;
   website?: string;
-  target?: string;
 }) {
   return (
     <span className="block items-center gap-4">
@@ -153,9 +153,9 @@ function Contact() {
         />
         <ContactLink
           href="/publications"
+          target="_self"
           title="View all"
           website="Publications"
-          target="_self"
         />
         <ContactLink
           href="mailto:contact@pertermann.de"

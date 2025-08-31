@@ -24,7 +24,7 @@
     "@react-three/drei": "^9.122.0",
     "@react-three/fiber": "^8.18.0",
     "babel-loader": "^10.0.0",
-    "caniuse-lite": "^1.0.30001718",
+    "caniuse-lite": "^1.0.30001739",
     "contentlayer": "^0.3.4",
     "date-fns": "^2.30.0",
     "esbuild": "^0.25.4",
