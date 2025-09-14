@@ -16,8 +16,9 @@ type Publication = {
         label: string;
         url: string;
     }[];
+    presentationFilename?: string;
     title: string;
-    type: 'Bachelor Thesis' | 'Research Paper' | 'Article' | 'Other' | 'Besondere Lernleistung' | 'BLL';
+    type: string;
 };
 
 // List of all available publications
@@ -38,6 +39,7 @@ const publications: Publication[] = [
                 url: 'https://github.com/PrtmPhlp/DSB-Frontend'
             },
         ],
+        presentationFilename: 'kolloquium.pdf',
         title: 'Besondere Lernleistung',
         type: 'BLL'
     },
@@ -75,6 +77,9 @@ export default async function Publications() {
 
 function PublicationCard({ publication }: { publication: Publication }) {
     const pdfUrl = `/static/publications/${publication.filename}`;
+    const presentationUrl = publication.presentationFilename
+        ? `/static/publications/${publication.presentationFilename}`
+        : null;
 
     return (
         <div className="group relative rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all duration-200 hover:shadow-md dark:border-gray-700 dark:bg-gray-800">
@@ -166,28 +171,29 @@ function PublicationCard({ publication }: { publication: Publication }) {
                             Download PDF
                         </a>
 
-                        <Link
-                            className="inline-flex flex-1 items-center justify-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 sm:flex-initial sm:justify-start"
-                            href={pdfUrl}
-                            rel="noopener noreferrer"
-                            target="_blank"
-                        >
-                            <svg
-                                className="mr-2 h-4 w-4"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth={2}
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg"
+                        {presentationUrl && (
+                            <a
+                                className="inline-flex flex-1 items-center justify-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 sm:flex-initial sm:justify-start"
+                                download={publication.presentationFilename}
+                                href={presentationUrl}
                             >
-                                <path
-                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                <svg
+                                    className="mr-2 h-4 w-4"
+                                    fill="none"
+                                    stroke="currentColor"
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
-                                />
-                            </svg>
-                            Open in Browser
-                        </Link>
+                                    strokeWidth={2}
+                                    viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path d="M2 3h20" />
+                                    <path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3" />
+                                    <path d="m7 21 5-5 5 5" />
+                                </svg>
+                                Download Presentation
+                            </a>
+                        )}
                     </div>
                 </div>
 
