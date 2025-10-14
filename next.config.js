@@ -5,7 +5,7 @@ const nextConfig = {
   output: 'standalone',
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
   transpilePackages: ['troika-three-text'],
-  webpack: (config, { isServer }) => {
+  webpack: (config) => {
     config.module.rules.push({
       test: /troika-three-text\.esm\.js$/,
       use: {
@@ -20,4 +20,3 @@ const nextConfig = {
 };
 
 module.exports = withContentlayer(nextConfig);
-

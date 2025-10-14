@@ -1,3 +1,4 @@
+/* eslint-env mocha */
 const assert = require('node:assert');
 describe('Array', () => {
   describe('#indexOf()', () => {

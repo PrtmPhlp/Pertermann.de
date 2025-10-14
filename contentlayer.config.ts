@@ -6,32 +6,11 @@ import {
 import readingTime from 'reading-time';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeKatex from 'rehype-katex';
-import rehypePrettyCode, { Options } from 'rehype-pretty-code';
+import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
-
-const rehypePrettyCodeOptions: Partial<Options> = {
-  onVisitHighlightedLine(node) {
-    node.properties.className.push('syntax-line--highlighted');
-  },
-  onVisitHighlightedWord(node) {
-    node.properties.className = ['syntax-word--highlighted'];
-  },
-  onVisitLine(node) {
-    // Prevent lines from collapsing in `display: grid` mode, and
-    // allow empty lines to be copy/pasted
-    if (node.children.length === 0) {
-      node.children = [{ type: 'text', value: ' ' }];
-    }
-    node.properties.className.push('syntax-line');
-  },
-  theme: 'one-dark-pro',
-  tokensMap: {
-    fn: 'entity.name.function',
-    objKey: 'meta.object-literal.key',
-  },
-};
+import { rehypePrettyCodeOptions } from './lib/rehypePrettyCodeOptions';
 
 const computedFields: ComputedFields = {
   readingTime: { resolve: (doc) => readingTime(doc.body.raw), type: 'json' },
@@ -93,8 +72,8 @@ const contentLayerConfig = makeSource({
         },
       ],
       rehypeKatex,
-    ],
-    remarkPlugins: [remarkGfm, remarkMath],
+    ] as any,
+    remarkPlugins: [remarkGfm, remarkMath] as any,
   },
 });
 
