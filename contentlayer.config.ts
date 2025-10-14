@@ -1,3 +1,4 @@
+import { rehypePrettyCodeOptions } from './lib/rehypePrettyCodeOptions';
 import {
   ComputedFields,
   defineDocumentType,
@@ -10,7 +11,6 @@ import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
-import { rehypePrettyCodeOptions } from './lib/rehypePrettyCodeOptions';
 
 const computedFields: ComputedFields = {
   readingTime: { resolve: (doc) => readingTime(doc.body.raw), type: 'json' },
