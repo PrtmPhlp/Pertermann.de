@@ -1,13 +1,8 @@
-export default function robots() {
+import { MetadataRoute } from 'next';
+
+export default function robots(): MetadataRoute.Robots {
   return {
-    // host: 'https://pertermann.de',
-    rules: [
-      {
-        allow: '/',
-        disallow: '',
-        userAgent: '*',
-      },
-    ],
+    rules: [],
     sitemap: 'https://pertermann.de/sitemap.xml',
   };
 }
