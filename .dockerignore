@@ -40,7 +40,7 @@ docker-compose*.yml
 .github/
 .gitea/
 
-# Contentlayer cache
+# Contentlayer cache (will be regenerated during build)
 .contentlayer/
 
 # Misc

@@ -18,8 +18,8 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Build the application
-RUN bun run build
+# Generate contentlayer files first, then build Next.js
+RUN bunx contentlayer2 build && bun run build
 
 # Production image, copy all the files and run next
 FROM oven/bun:1.3-slim AS runner
