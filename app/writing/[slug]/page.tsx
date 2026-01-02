@@ -19,9 +19,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: Writing;
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata | undefined> {
-  const post = allWritings.find((post) => post.slug === params.slug);
+  const { slug } = await params;
+  const post = allWritings.find((post) => post.slug === slug);
   if (!post) {
     return;
   }
@@ -31,7 +32,7 @@ export async function generateMetadata({
     publishedAt: publishedTime,
     summary: description,
     image,
-    slug,
+    slug: postSlug,
   } = post;
   const ogImage = image
     ? `https://pertermann.de${image}`
@@ -49,7 +50,7 @@ export async function generateMetadata({
       publishedTime,
       title,
       type: 'article',
-      url: `https://pertermann.de/blog/${slug}`,
+      url: `https://pertermann.de/blog/${postSlug}`,
     },
     title,
     twitter: {
@@ -64,9 +65,9 @@ export async function generateMetadata({
 const editUrl = (slug: string) =>
   `https://github.com/PrtmPhlp/cretu.dev/edit/main/data/writing/${slug}.mdx`;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default async function WritingPost({ params }: { params: any }) {
-  const post = allWritings.find((post) => post.slug === params.slug);
+export default async function WritingPost({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = allWritings.find((post) => post.slug === slug);
 
   if (!post) {
     notFound();

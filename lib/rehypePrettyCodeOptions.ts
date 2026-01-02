@@ -2,9 +2,13 @@ import type { Options } from 'rehype-pretty-code';
 
 export const rehypePrettyCodeOptions: Partial<Options> = {
   onVisitHighlightedLine(node) {
-    node.properties.className.push('syntax-line--highlighted');
+    if (node.properties.className) {
+      node.properties.className.push('syntax-line--highlighted');
+    } else {
+      node.properties.className = ['syntax-line--highlighted'];
+    }
   },
-  onVisitHighlightedWord(node) {
+  onVisitHighlightedChars(node) {
     node.properties.className = ['syntax-word--highlighted'];
   },
   onVisitLine(node) {
@@ -12,12 +16,12 @@ export const rehypePrettyCodeOptions: Partial<Options> = {
     if (node.children.length === 0) {
       node.children = [{ type: 'text', value: ' ' }];
     }
-    node.properties.className.push('syntax-line');
+    if (node.properties.className) {
+      node.properties.className.push('syntax-line');
+    } else {
+      node.properties.className = ['syntax-line'];
+    }
   },
   theme: 'one-dark-pro',
-  tokensMap: {
-    fn: 'entity.name.function',
-    objKey: 'meta.object-literal.key',
-  },
 };
 

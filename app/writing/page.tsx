@@ -1,8 +1,8 @@
 import { allWritings } from '.contentlayer/generated';
 import { cn } from '@/lib/className';
 import { getRelativeTimeString } from '@/lib/relativeDate';
-import { pick } from 'contentlayer/client';
-import type { Writing } from 'contentlayer/generated';
+import { pick } from 'contentlayer2/client';
+import type { Writing } from 'contentlayer2/generated';
 import { Metadata } from 'next';
 import Link from 'next/link';
 

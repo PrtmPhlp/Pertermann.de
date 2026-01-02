@@ -31,7 +31,7 @@ export default function Footer() {
 }
 
 function PixelatedSphere() {
-  const sphereRef = useRef();
+  const sphereRef = useRef(undefined);
   useFrame(({ clock }: { clock: any }) => {
     if (sphereRef.current) {
       (sphereRef.current as any).rotation.y = clock.getElapsedTime() * 1.2;
@@ -64,7 +64,7 @@ function PixelatedSphere() {
 }
 
 function Birds() {
-  const groupRef = useRef();
+  const groupRef = useRef(undefined);
 
   useFrame(({ clock }: { clock: any }) => {
     if (!groupRef.current) return;

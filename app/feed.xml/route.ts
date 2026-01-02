@@ -29,7 +29,7 @@ const absolutizeUrls = (html: string, baseUrl: string) => {
 };
 
 export async function GET() {
-  const headersList = headers();
+  const headersList = await headers();
   const host = headersList.get('host') || 'pertermann.de';
   const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https';
   const baseUrl = `${protocol}://${host}`;

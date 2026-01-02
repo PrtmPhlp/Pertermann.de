@@ -2,7 +2,7 @@ import { allWritings } from '.contentlayer/generated';
 import { cn } from '@/lib/className';
 import { getRelativeTimeString } from '@/lib/relativeDate';
 import ExternalLink from '@/ui/ExternalLink';
-import { pick } from 'contentlayer/client';
+import { pick } from 'contentlayer2/client';
 import Image from 'next/image';
 import Link from 'next/link';
 import fs from 'node:fs/promises';

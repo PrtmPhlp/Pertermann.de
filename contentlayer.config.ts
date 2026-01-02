@@ -3,7 +3,7 @@ import {
   ComputedFields,
   defineDocumentType,
   makeSource,
-} from 'contentlayer/source-files';
+} from 'contentlayer2/source-files';
 import readingTime from 'reading-time';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeKatex from 'rehype-katex';

@@ -1,5 +1,5 @@
 import { createElement } from 'react';
-import { getMDXComponent } from 'next-contentlayer/hooks';
+import { getMDXComponent } from 'next-contentlayer2/hooks';
 import components from './rssMdxComponents';
 
 export async function mdxToHtml(code: string): Promise<string> {

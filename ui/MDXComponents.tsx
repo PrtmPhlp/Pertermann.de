@@ -2,7 +2,7 @@ import AnimatedGradientBox from '../app/components/AnimatedGradientBox';
 import Card from '../app/components/card';
 import ExternalLink from './ExternalLink';
 import Flashcard from './Flashcard';
-import { useMDXComponent } from 'next-contentlayer/hooks';
+import { useMDXComponent } from 'next-contentlayer2/hooks';
 import Image from 'next/image';
 import Link from 'next/link';
 
