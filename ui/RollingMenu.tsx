@@ -15,12 +15,21 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
-import { DetailedHTMLProps, HTMLAttributes, useEffect, useRef, useState, type JSX } from 'react';
+import {
+  DetailedHTMLProps,
+  HTMLAttributes,
+  useEffect,
+  useRef,
+  useState,
+  type JSX,
+} from 'react';
 
 export default function RollingMenu() {
   const [expanded, setExpanded] = useState(false);
   const ref =
-    useRef<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>>(undefined);
+    useRef<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>>(
+      undefined,
+    );
   const { resolvedTheme, setTheme } = useTheme();
 
   const memoizedActions = actions.filter((action) => {

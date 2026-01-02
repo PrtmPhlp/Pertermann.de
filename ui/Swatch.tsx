@@ -94,7 +94,7 @@ export default function Swatch() {
   return (
     <motion.div
       animate={controls}
-      className=" w-fit  font-semibold  tracking-tight text-white"
+      className="w-fit font-semibold tracking-tight text-white"
       drag="x"
       dragConstraints={{ left: -50, right: 0 }}
       dragElastic={0.5}
@@ -187,7 +187,7 @@ export default function Swatch() {
               <span className="select-none text-xs">{item.name}</span>
             </div>
           ))}
-          <div className="h-14 w-12 "></div>
+          <div className="h-14 w-12"></div>
         </motion.div>
         ))
       </AnimatePresence>

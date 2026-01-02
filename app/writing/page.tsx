@@ -34,7 +34,7 @@ export default async function Writing() {
       <p className="text-tertiary">
         If you&apos;re interested in exploring the articles that inspire me and
         shape my thinking, check out{' '}
-        <Link className="underline " href={'/resources'}>
+        <Link className="underline" href={'/resources'}>
           Resources
         </Link>
         .

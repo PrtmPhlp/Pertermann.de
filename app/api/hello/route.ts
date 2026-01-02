@@ -11,7 +11,5 @@ export async function GET() {
   // return new Response(
   //   `Hello, Next.js! \n5 * 3 equals: ${result} \nmessage.txt: ${file}`,
   // );
-  return new Response(
-    `Hello World`,
-  );
+  return new Response(`Hello World`);
 }

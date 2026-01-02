@@ -24,4 +24,3 @@ export const rehypePrettyCodeOptions: Partial<Options> = {
   },
   theme: 'one-dark-pro',
 };
-

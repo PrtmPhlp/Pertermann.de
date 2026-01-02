@@ -28,7 +28,7 @@ export default function Flashcard({
       onClick={() => handleClick()}
     >
       <div
-        className={`flip-card-inner  h-full text-center text-2xl font-semibold text-gray-100 ${
+        className={`flip-card-inner h-full text-center text-2xl font-semibold text-gray-100 ${
           isFlipped ? 'rotate-y-180' : ''
         }`}
       >

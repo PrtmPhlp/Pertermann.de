@@ -1,7 +1,49 @@
+# Dependencies
 node_modules
-npm-debug.log
-README.md
+
+# Build outputs (except what we need)
 .next
 !.next/static
 !.next/standalone
+
+# Git
 .git
+.gitignore
+
+# IDE/Editor
+.vscode
+.idea
+*.swp
+*.swo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Documentation
+README.md
+LICENSE
+
+# Tests
+test/
+*.test.js
+*.test.ts
+
+# Docker files (prevent recursive copy)
+Dockerfile*
+compose.yaml
+docker-compose*.yml
+.dockerignore
+
+# CI/CD
+.github/
+.gitea/
+
+# Contentlayer cache
+.contentlayer/
+
+# Misc
+.DS_Store
+*.pem
+.env*.local

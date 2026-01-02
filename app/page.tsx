@@ -97,7 +97,7 @@ function ContactLink({
   title,
   website,
   email,
-  target = "_blank",
+  target = '_blank',
 }: {
   email?: string;
   href?: string;
@@ -117,7 +117,7 @@ function ContactLink({
         >
           {title}{' '}
           <svg
-            className=" inline-block h-3 w-3"
+            className="inline-block h-3 w-3"
             fill="none"
             stroke="currentColor"
             strokeWidth={1.5}
@@ -167,11 +167,7 @@ function Contact() {
           title="old website"
           website="Legacy"
         />
-        <ContactLink
-          href="/feed.xml"
-          title="Subscribe"
-          website="RSS Feed"
-        />
+        <ContactLink href="/feed.xml" title="Subscribe" website="RSS Feed" />
         <ContactLink
           href="https://status.pertermann.de"
           title="Systemstatus"

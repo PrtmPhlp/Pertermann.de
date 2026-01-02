@@ -5,4 +5,6 @@ services:
     build:
       dockerfile: ./Dockerfile
     ports:
-     - 3000:3000
+      - 3000:3000
+    restart: unless-stopped
+    # Healthcheck is defined in Dockerfile

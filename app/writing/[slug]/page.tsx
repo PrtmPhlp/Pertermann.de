@@ -65,7 +65,11 @@ export async function generateMetadata({
 const editUrl = (slug: string) =>
   `https://github.com/PrtmPhlp/cretu.dev/edit/main/data/writing/${slug}.mdx`;
 
-export default async function WritingPost({ params }: { params: Promise<{ slug: string }> }) {
+export default async function WritingPost({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const post = allWritings.find((post) => post.slug === slug);
 
@@ -110,11 +114,15 @@ export default async function WritingPost({ params }: { params: Promise<{ slug: 
       <CommitSection slug={post.slug} /> {/* Use the wrapper component */}
       <div className="mt-8 text-sm">
         <p>
-            <ExternalLink arrow={false} href={editUrl(post.slug)}>edit source on GitHub</ExternalLink>
-            {' • '}
-            <ExternalLink arrow={false} href="https://status.pertermann.de">status.pertermann.de</ExternalLink>
-          </p>
-          </div>
+          <ExternalLink arrow={false} href={editUrl(post.slug)}>
+            edit source on GitHub
+          </ExternalLink>
+          {' • '}
+          <ExternalLink arrow={false} href="https://status.pertermann.de">
+            status.pertermann.de
+          </ExternalLink>
+        </p>
+      </div>
     </div>
   );
 }

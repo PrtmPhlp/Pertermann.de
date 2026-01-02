@@ -5,7 +5,6 @@
   "scripts": {
     "dev-s": "NODE_OPTIONS=\"--max_old_space_size=1024\" next dev",
     "dev": "next dev",
-    "dev-t": "next dev --turbo",
     "build-s": "NODE_OPTIONS=\"--max_old_space_size=1024\" next build",
     "build": "next build",
     "format": "prettier --write .",
@@ -23,11 +22,10 @@
     "@next/mdx": "16.1.1",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.5.0",
-    "babel-loader": "^10.0.0",
     "baseline-browser-mapping": "^2.9.11",
     "caniuse-lite": "^1.0.30001762",
     "contentlayer2": "^0.5.8",
-    "date-fns": "^2.30.0",
+    "date-fns": "^4.1.0",
     "esbuild": "^0.25.1",
     "framer-motion": "^12.23.26",
     "katex": "^0.16.22",
@@ -56,7 +54,7 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.16",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
-    "@types/node": "20.3.3",
+    "@types/node": "^25.0.3",
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
     "@types/three": "^0.152.1",
@@ -74,11 +72,11 @@
     "eslint-plugin-unicorn": "^47.0.0",
     "mocha": "^10.8.2",
     "postcss": "^8.5.3",
-    "prettier": "^2.8.8",
-    "prettier-plugin-tailwindcss": "^0.3.0",
+    "prettier": "^3.7.4",
+    "prettier-plugin-tailwindcss": "^0.7.2",
     "reading-time": "^1.5.0",
     "tailwindcss": "^3.4.17",
-    "typescript": "5.1.6"
+    "typescript": "^5.9.3"
   },
   "license": "MIT",
   "author": {
