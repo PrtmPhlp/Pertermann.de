@@ -124,7 +124,7 @@ export default function RollingMenu() {
       <motion.button
         animate={{ rotate: expanded ? 45 : 0 }}
         aria-label="Navigation Menu"
-        className="h-10 w-10 select-none items-center rounded-full bg-black p-3 dark:bg-white"
+        className="flex h-12 w-12 select-none items-center justify-center rounded-full bg-black dark:bg-white m-2"
         onClick={handleClick}
         whileTap={{ scale: 1.1 }}
       >
@@ -165,7 +165,7 @@ export default function RollingMenu() {
                         : 'button'
                   }
                   className={cn(
-                    'flex h-10 w-10 cursor-pointer select-none flex-col items-center space-y-1 p-3 transition-all duration-200',
+                    'flex h-12 w-12 cursor-pointer select-none items-center justify-center transition-all duration-200',
                     'rounded-full',
                     `bg-[${action.color}]`,
                   )}

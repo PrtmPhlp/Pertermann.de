@@ -1,3 +1,5 @@
+@reference "../app/globals.css";
+
 .prose .anchor {
   @apply invisible absolute no-underline;
 
@@ -88,7 +90,7 @@ table {
 }
 
 [data-rehype-pretty-code-fragment] code {
-  @apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0 text-sm text-black;
+  @apply grid min-w-full rounded-none border-0 bg-transparent p-0 text-sm break-words text-black;
   counter-reset: line;
   box-decoration-break: clone;
 }
@@ -105,13 +107,13 @@ table {
   color: gray;
 }
 [data-rehype-pretty-code-fragment] .line--highlighted {
-  @apply bg-slate-500 bg-opacity-10;
+  @apply bg-slate-500/10;
 }
 [data-rehype-pretty-code-fragment] .line-highlighted span {
   @apply relative;
 }
 [data-rehype-pretty-code-fragment] .word--highlighted {
-  @apply rounded-md bg-slate-500 bg-opacity-10 p-1;
+  @apply rounded-md bg-slate-500/10 p-1;
 }
 [data-rehype-pretty-code-title] {
   @apply rounded-t-lg border border-[#333333] bg-[#1c1c1c] px-4 py-3 font-mono text-xs font-medium text-neutral-200;

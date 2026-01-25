@@ -1,6 +1,22 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-gray-*: initial;
+  --color-gray-50: var(--color-neutral-50);
+  --color-gray-100: var(--color-neutral-100);
+  --color-gray-200: var(--color-neutral-200);
+  --color-gray-300: var(--color-neutral-300);
+  --color-gray-400: var(--color-neutral-400);
+  --color-gray-500: var(--color-neutral-500);
+  --color-gray-600: var(--color-neutral-600);
+  --color-gray-700: var(--color-neutral-700);
+  --color-gray-800: var(--color-neutral-800);
+  --color-gray-900: var(--color-neutral-900);
+  --color-gray-950: var(--color-neutral-950);
+}
 
 @layer base {
   html {
@@ -40,36 +56,31 @@
 @layer components {
   button {
     user-select: none;
-  }
-
-  button {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
-    -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none;
     -webkit-tap-highlight-color: transparent;
   }
 }
 
+@utility text-primary {
+  @apply text-black dark:text-white;
+}
+
+@utility text-secondary {
+  @apply text-black/80 dark:text-white/80;
+}
+
+@utility text-tertiary {
+  @apply text-black/60 dark:text-white/60;
+}
+
+@utility text-quaternary {
+  @apply text-black/40 dark:text-white/40;
+}
+
 @layer utilities {
-  .text-primary {
-    @apply text-black dark:text-white;
-  }
-
-  .text-secondary {
-    @apply text-black/80 dark:text-white/80;
-  }
-
-  .text-tertiary {
-    @apply text-black/60 dark:text-white/60;
-  }
-
-  .text-quaternary {
-    @apply text-black/40 dark:text-white/40;
-  }
-
   .flip-card {
     background-color: transparent;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */

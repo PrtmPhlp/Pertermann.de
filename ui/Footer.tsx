@@ -7,7 +7,7 @@ import { IcosahedronGeometry } from 'three';
 
 export default function Footer() {
   return (
-    <footer className="text-quaternary mx-auto max-w-2xl border-t border-dashed border-gray-200 py-12 pb-24 pt-4 text-sm dark:border-gray-200 dark:text-gray-600">
+    <footer className="text-quaternary mx-auto max-w-2xl py-12 pb-24 pt-4 text-sm dark:text-gray-600">
       <FooterGraphic />
       <p className="flex flex-col gap-4">
         © 2022 - {new Date().getFullYear()} pertermann
