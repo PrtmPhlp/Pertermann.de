@@ -80,8 +80,12 @@ function AboutMe() {
           doorstep and chaos reigns supreme.
         </p>
         <p>
-          Working on multiple projects and apps, some of them you can find here,
-          some you don&apos;t. Maybe also look at my{' '}
+          Currently working at{' '}
+          <ExternalLink arrow={true} href="https://pico.group">
+            Picosoft
+          </ExternalLink>. 
+          Building multiple projects and apps, some of them you can find here,
+          some you don&apos;t. Also look at my{' '}
           <ExternalLink arrow={true} href="https://github.com/PrtmPhlp">
             Github
           </ExternalLink>{' '}
@@ -148,13 +152,13 @@ function Contact() {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         <ContactLink
           href="https://github.com/PrtmPhlp"
-          title="PrtmPhlp"
+          title="prtmphlp"
           website="GitHub"
         />
         <ContactLink
           href="/publications"
           target="_self"
-          title="View all"
+          title="view all"
           website="Publications"
         />
         <ContactLink
@@ -167,10 +171,10 @@ function Contact() {
           title="old website"
           website="Legacy"
         />
-        <ContactLink href="/feed.xml" title="Subscribe" website="RSS Feed" />
+        <ContactLink href="/feed.xml" title="subscribe" website="RSS Feed" />
         <ContactLink
           href="https://status.pertermann.de"
-          title="Systemstatus"
+          title="systemstatus"
           website="Surveillance"
         />
         {/* <ContactLink href="about:blank" title="placeholder" website="--" /> */}

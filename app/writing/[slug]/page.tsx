@@ -63,7 +63,7 @@ export async function generateMetadata({
 }
 
 const editUrl = (slug: string) =>
-  `https://github.com/PrtmPhlp/cretu.dev/edit/main/data/writing/${slug}.mdx`;
+  `https://github.com/PrtmPhlp/pertermann.de/edit/main/data/writing/${slug}.mdx`;
 
 export default async function WritingPost({
   params,

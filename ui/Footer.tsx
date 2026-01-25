@@ -10,19 +10,18 @@ export default function Footer() {
     <footer className="text-quaternary mx-auto max-w-2xl border-t border-dashed border-gray-200 py-12 pb-24 pt-4 text-sm dark:border-gray-200 dark:text-gray-600">
       <FooterGraphic />
       <p className="flex flex-col gap-4">
-        © 2022 - {new Date().getFullYear()} Pertermann. All Rights Reserved.
+        © 2022 - {new Date().getFullYear()} pertermann
         <span>
           www.pertermann.de v.{new Date().getFullYear()}.
           {(new Date().getMonth() + 1).toString().padStart(2, '0')}
         </span>
         <span>
-          This website is open source on{' '}
           <a
             href="https://github.com/PrtmPhlp/pertermann.de"
             rel="noopener noreferrer"
             target="_blank"
           >
-            GitHub :)
+            view source :)
           </a>
         </span>
       </p>
