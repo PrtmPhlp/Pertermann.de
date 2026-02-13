@@ -7,8 +7,14 @@ services:
     ports:
       - 3000:3000
     restart: unless-stopped
+    networks:
+      - proxy
     environment:
       - RESUME_PASSWORD=${RESUME_PASSWORD}
       - RESUME_CDN_URL=${RESUME_CDN_URL}
       - RESUME_CDN_USER=${RESUME_CDN_USER}
       - RESUME_CDN_PASS=${RESUME_CDN_PASS}
+
+networks:
+  proxy:
+    external: true

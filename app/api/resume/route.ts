@@ -1,10 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 const RESUME_PASSWORD = process.env.RESUME_PASSWORD;
-const RESUME_CDN_URL: string =
-  process.env.RESUME_CDN_URL ||
-  'https://files.pertermann.de/pertermann-cdn/resume.md';
-const RESUME_CDN_USER = process.env.RESUME_CDN_USER || 'pertermann-webserver';
+const RESUME_CDN_URL = process.env.RESUME_CDN_URL;
+const RESUME_CDN_USER = process.env.RESUME_CDN_USER;
 const RESUME_CDN_PASS = process.env.RESUME_CDN_PASS;
 
 const RATE_LIMIT_WINDOW_MS = Number(
@@ -53,11 +51,14 @@ function checkRateLimit(clientId: string): boolean {
   return true;
 }
 
+const ALLOWED_CDN_HOSTS = new Set(['files.pertermann.de', 'fileserver']);
+
 function getSafeResumeUrl(): URL | null {
+  if (!RESUME_CDN_URL) return null;
   try {
     const url = new URL(RESUME_CDN_URL);
-    if (url.protocol !== 'https:') return null;
-    if (url.hostname !== 'files.pertermann.de') return null;
+    if (!['https:', 'http:'].includes(url.protocol)) return null;
+    if (!ALLOWED_CDN_HOSTS.has(url.hostname)) return null;
     return url;
   } catch {
     return null;
@@ -140,7 +141,24 @@ export async function POST(request: NextRequest) {
     }
 
     return jsonNoStore({ content }, 200);
-  } catch {
-    return jsonNoStore({ error: 'Ungültige Anfrage' }, 400);
+  } catch (err) {
+    if (err instanceof SyntaxError) {
+      return jsonNoStore({ error: 'Ungültige Anfrage' }, 400);
+    }
+
+    const isTimeout =
+      (err instanceof DOMException && err.name === 'TimeoutError') ||
+      (err instanceof Error && err.name === 'AbortError');
+
+    if (isTimeout) {
+      console.error('CDN fetch timed out');
+      return jsonNoStore(
+        { error: 'Lebenslauf konnte nicht geladen werden (Timeout)' },
+        504,
+      );
+    }
+
+    console.error('Unexpected resume API error:', err);
+    return jsonNoStore({ error: 'Interner Fehler' }, 500);
   }
 }
