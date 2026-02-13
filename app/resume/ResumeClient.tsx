@@ -76,6 +76,12 @@ export default function ResumeClient() {
                     <p className="text-destructive text-center text-sm">{error}</p>
                 )}
             </form>
+            <a
+                className="text-muted-foreground mt-4 text-center text-xs underline underline-offset-2 transition-colors hover:text-foreground"
+                href="mailto:contact@pertermann.de?subject=Passwort%20Anfrage%20f%C3%BCr%20Lebenslauf"
+            >
+                Passwort anfragen
+            </a>
         </div>
     );
 }
