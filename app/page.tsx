@@ -167,9 +167,10 @@ function Contact() {
           website="Email"
         />
         <ContactLink
-          href="https://legacy.pertermann.de"
-          title="old website"
-          website="Legacy"
+          href="/resume"
+          target='_self'
+          title="view"
+          website="Resume"
         />
         <ContactLink href="/feed.xml" title="subscribe" website="RSS Feed" />
         <ContactLink
